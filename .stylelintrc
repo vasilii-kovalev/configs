@@ -1,0 +1,16 @@
+{
+  // "version": "1.0.0",
+  "plugins": [
+    "stylelint-scss",
+    "stylelint-order"
+  ],
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-css-modules"
+  ],
+  "rules": {
+    "at-rule-no-unknown": null,
+    "order/properties-alphabetical-order": true,
+    "scss/at-rule-no-unknown": true
+  }
+}
