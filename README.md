@@ -2,6 +2,180 @@
 
 One repository for all configs (ESLint, Stylelint, TS config, EditorConfig, etc.)
 
+## tsconfig.json
+#### npm script
+```json
+{
+  "tslint": "tsc --noEmit"
+}
+```
+
+### React
+```jsonc
+{
+  "version": "1.0.0",
+  "exclude": [
+    "node_modules",
+    "src/**/*.test.ts"
+  ],
+  "include": [
+    "src"
+  ],
+  "compilerOptions": {
+    /* Basic Options */
+    // "incremental": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "allowJs": true,
+    // "checkJs": true,
+    "jsx": "react",
+    "declaration": true,
+    // "declarationMap": true,
+    // "sourceMap": true,
+    // "outFile": "./",
+    // "outDir": "./lib",
+    "rootDir": "src",
+    // "composite": true,
+    // "tsBuildInfoFile": "./",
+    // "removeComments": true,
+    "noEmit": true,
+    // "importHelpers": true,
+    // "downlevelIteration": true,
+    "isolatedModules": true,
+    /* Strict Type-Checking Options */
+    "strict": true,
+    // "noImplicitAny": true,
+    // "strictNullChecks": true,
+    // "strictFunctionTypes": true,
+    // "strictBindCallApply": true,
+    // "strictPropertyInitialization": true,
+    // "noImplicitThis": true,
+    // "alwaysStrict": true,
+    /* Additional Checks */
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+    // "noImplicitReturns": true,
+    // "noFallthroughCasesInSwitch": true,
+    /* Module Resolution Options */
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    // "paths": {},
+    // "rootDirs": [],
+    // "typeRoots": [],
+    // "types": [],
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    // "preserveSymlinks": true,
+    // "allowUmdGlobalAccess": true,
+    /* Source Map Options */
+    // "sourceRoot": "",
+    // "mapRoot": "",
+    // "inlineSourceMap": true,
+    // "inlineSources": true,
+    /* Experimental Options */
+    // "experimentalDecorators": true,
+    // "emitDecoratorMetadata": true,
+    /* Advanced Options */
+    "forceConsistentCasingInFileNames": true
+  }
+}
+```
+
+### TypeScript
+```jsonc
+{
+  "version": "1.0.0",
+  "exclude": [
+    "node_modules",
+    "src/**/*.test.ts",
+    "lib/*"
+  ],
+  "compilerOptions": {
+    /* Basic Options */
+    // "incremental": true,
+    "target": "es5",
+    "module": "commonjs",
+    // "lib": [],
+    // "allowJs": true,
+    // "checkJs": true,
+    // "jsx": "preserve",
+    "declaration": true,
+    // "declarationMap": true,
+    // "sourceMap": true,
+    // "outFile": "./",
+    "outDir": "./lib",
+    "rootDir": "src",
+    // "composite": true,
+    // "tsBuildInfoFile": "./",
+    // "removeComments": true,
+    // "noEmit": true,
+    // "importHelpers": true,
+    // "downlevelIteration": true,
+    "isolatedModules": true,
+    /* Strict Type-Checking Options */
+    "strict": true,
+    // "noImplicitAny": true,
+    // "strictNullChecks": true,
+    // "strictFunctionTypes": true,
+    // "strictBindCallApply": true,
+    // "strictPropertyInitialization": true,
+    // "noImplicitThis": true,
+    // "alwaysStrict": true,
+    /* Additional Checks */
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+    // "noImplicitReturns": true,
+    // "noFallthroughCasesInSwitch": true,
+    /* Module Resolution Options */
+    // "moduleResolution": "node",
+    "baseUrl": ".",
+    // "paths": {},
+    // "rootDirs": [],
+    // "typeRoots": [],
+    // "types": [],
+    // "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    // "preserveSymlinks": true,
+    // "allowUmdGlobalAccess": true,
+    /* Source Map Options */
+    // "sourceRoot": "",
+    // "mapRoot": "",
+    // "inlineSourceMap": true,
+    // "inlineSources": true,
+    /* Experimental Options */
+    // "experimentalDecorators": true,
+    // "emitDecoratorMetadata": true,
+    /* Advanced Options */
+    "forceConsistentCasingInFileNames": true
+  }
+}
+```
+
+#### tsconfig.eslint.json
+In order to lint tests, but don't compile them, it is necessary to have a
+separate `tsconfig.json` file [[more](https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/MONOREPO.md#one-root-tsconfigjson)].
+
+```jsonc
+{
+  "version": "1.0.0",
+  "extends": "./tsconfig.json",
+  "exclude": [],
+  "include": [
+    "src"
+  ],
+  "compilerOptions": {
+    "noEmit": true
+  }
+}
+```
+
 ## ESlint
 ### React
 #### Install
@@ -204,7 +378,7 @@ npm i -D eslint @typescript-eslint/parser eslint-config-airbnb-base eslint-plugi
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project": "tsconfig.json"
+    "project": "tsconfig.eslint.json"
   },
   "env": {
     "jest": true
@@ -221,7 +395,7 @@ npm i -D eslint @typescript-eslint/parser eslint-config-airbnb-base eslint-plugi
 }
 ```
 
-### Stylelint
+## Stylelint
 #### Install
 ```shell
 npm i -D stylelint stylelint-config-css-modules stylelint-config-standard stylelint-order stylelint-scss
@@ -254,7 +428,7 @@ npm i -D stylelint stylelint-config-css-modules stylelint-config-standard stylel
 }
 ```
 
-### EditorConfig
+## EditorConfig
 #### .editorconfig
 ```editor-config
 # version: 1.0.0
@@ -266,160 +440,4 @@ insert_final_newline = true
 charset = utf-8
 indent_style = space
 indent_size = 2
-```
-
-### tsconfig.json
-#### npm script
-```json
-{
-  "tslint": "tsc --noEmit"
-}
-```
-
-### React
-```jsonc
-{
-  "version": "1.0.0",
-  "exclude": [
-    "node_modules",
-    "src/**/*.test.ts"
-  ],
-  "include": [
-    "src"
-  ],
-  "compilerOptions": {
-    /* Basic Options */
-    // "incremental": true,
-    "target": "ESNext",
-    "module": "ESNext",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "allowJs": true,
-    // "checkJs": true,
-    "jsx": "react",
-    "declaration": true,
-    // "declarationMap": true,
-    // "sourceMap": true,
-    // "outFile": "./",
-    // "outDir": "./lib",
-    "rootDir": "src",
-    // "composite": true,
-    // "tsBuildInfoFile": "./",
-    // "removeComments": true,
-    "noEmit": true,
-    // "importHelpers": true,
-    // "downlevelIteration": true,
-    "isolatedModules": true,
-    /* Strict Type-Checking Options */
-    "strict": true,
-    // "noImplicitAny": true,
-    // "strictNullChecks": true,
-    // "strictFunctionTypes": true,
-    // "strictBindCallApply": true,
-    // "strictPropertyInitialization": true,
-    // "noImplicitThis": true,
-    // "alwaysStrict": true,
-    /* Additional Checks */
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    // "noImplicitReturns": true,
-    // "noFallthroughCasesInSwitch": true,
-    /* Module Resolution Options */
-    "moduleResolution": "node",
-    "baseUrl": ".",
-    // "paths": {},
-    // "rootDirs": [],
-    // "typeRoots": [],
-    // "types": [],
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    // "preserveSymlinks": true,
-    // "allowUmdGlobalAccess": true,
-    /* Source Map Options */
-    // "sourceRoot": "",
-    // "mapRoot": "",
-    // "inlineSourceMap": true,
-    // "inlineSources": true,
-    /* Experimental Options */
-    // "experimentalDecorators": true,
-    // "emitDecoratorMetadata": true,
-    /* Advanced Options */
-    "forceConsistentCasingInFileNames": true
-  }
-}
-```
-
-### TypeScript
-```jsonc
-{
-  "version": "1.0.0",
-  "exclude": [
-    "node_modules",
-    "src/**/*.test.ts",
-    "lib/*"
-  ],
-  "compilerOptions": {
-    /* Basic Options */
-    // "incremental": true,
-    "target": "es5",
-    "module": "commonjs",
-    // "lib": [],
-    // "allowJs": true,
-    // "checkJs": true,
-    // "jsx": "preserve",
-    "declaration": true,
-    // "declarationMap": true,
-    // "sourceMap": true,
-    // "outFile": "./",
-    "outDir": "./lib",
-    "rootDir": "src",
-    // "composite": true,
-    // "tsBuildInfoFile": "./",
-    // "removeComments": true,
-    // "noEmit": true,
-    // "importHelpers": true,
-    // "downlevelIteration": true,
-    "isolatedModules": true,
-    /* Strict Type-Checking Options */
-    "strict": true,
-    // "noImplicitAny": true,
-    // "strictNullChecks": true,
-    // "strictFunctionTypes": true,
-    // "strictBindCallApply": true,
-    // "strictPropertyInitialization": true,
-    // "noImplicitThis": true,
-    // "alwaysStrict": true,
-    /* Additional Checks */
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    // "noImplicitReturns": true,
-    // "noFallthroughCasesInSwitch": true,
-    /* Module Resolution Options */
-    // "moduleResolution": "node",
-    "baseUrl": ".",
-    // "paths": {},
-    // "rootDirs": [],
-    // "typeRoots": [],
-    // "types": [],
-    // "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    // "preserveSymlinks": true,
-    // "allowUmdGlobalAccess": true,
-    /* Source Map Options */
-    // "sourceRoot": "",
-    // "mapRoot": "",
-    // "inlineSourceMap": true,
-    // "inlineSources": true,
-    /* Experimental Options */
-    // "experimentalDecorators": true,
-    // "emitDecoratorMetadata": true,
-    /* Advanced Options */
-    "forceConsistentCasingInFileNames": true
-  }
-}
 ```
