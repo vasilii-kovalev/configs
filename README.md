@@ -1,6 +1,10 @@
 # Useful configs
 
-One repository for all configs (ESLint, Stylelint, TS config, EditorConfig, etc.)
+One repository for all configs:
+* tsconfig.json
+* ESLint
+* Stylelint
+* EditorConfig
 
 ## tsconfig.json
 #### npm script
@@ -11,13 +15,12 @@ One repository for all configs (ESLint, Stylelint, TS config, EditorConfig, etc.
 ```
 
 ### React
+#### tsconfig.json
+[Source](https://github.com/vasilii-kovalev/useful_configs/blob/master/react/tsconfig.json)
+
 ```jsonc
 {
   "version": "1.0.0",
-  "exclude": [
-    "node_modules",
-    "src/**/*.test.ts"
-  ],
   "include": [
     "src"
   ],
@@ -89,6 +92,9 @@ One repository for all configs (ESLint, Stylelint, TS config, EditorConfig, etc.
 ```
 
 ### TypeScript
+#### tsconfig.json
+[Source](https://github.com/vasilii-kovalev/useful_configs/blob/master/typescript/tsconfig.json)
+
 ```jsonc
 {
   "version": "1.0.0",
@@ -162,6 +168,8 @@ One repository for all configs (ESLint, Stylelint, TS config, EditorConfig, etc.
 In order to lint tests, but don't compile them, it is necessary to have a
 separate `tsconfig.json` file [[more](https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/MONOREPO.md#one-root-tsconfigjson)].
 
+[Source](https://github.com/vasilii-kovalev/useful_configs/blob/master/typescript/tsconfig.eslint.json)
+
 ```jsonc
 {
   "version": "1.0.0",
@@ -191,6 +199,8 @@ npm i -D eslint@^6.6.0 @typescript-eslint/parser eslint-config-airbnb-typescript
 ```
 
 #### .eslintrc
+[Source](https://github.com/vasilii-kovalev/useful_configs/blob/master/react/.eslintrc)
+
 ```jsonc
 {
   // "version": "1.0.0",
@@ -281,6 +291,8 @@ npm i -D eslint@^6.6.0 @typescript-eslint/parser eslint-config-airbnb-typescript
 ```
 
 #### .eslintignore
+[Source](https://github.com/vasilii-kovalev/useful_configs/blob/master/react/.eslintignore)
+
 ```ignore
 # version: 1.0.0
 
@@ -301,6 +313,8 @@ npm i -D eslint @typescript-eslint/parser eslint-config-airbnb-base eslint-plugi
 ```
 
 #### .eslintrc
+[Source](https://github.com/vasilii-kovalev/useful_configs/blob/master/typescript/.eslintrc)
+
 ```jsonc
 {
   // "version": "1.0.0",
@@ -409,6 +423,8 @@ npm i -D stylelint stylelint-config-css-modules stylelint-config-standard stylel
 ```
 
 #### .stylelintrc
+[Source](https://github.com/vasilii-kovalev/useful_configs/blob/master/.stylelintrc)
+
 ```jsonc
 {
   // "version": "1.0.0",
@@ -430,6 +446,8 @@ npm i -D stylelint stylelint-config-css-modules stylelint-config-standard stylel
 
 ## EditorConfig
 #### .editorconfig
+[Source](https://github.com/vasilii-kovalev/useful_configs/blob/master/.editorconfig)
+
 ```editor-config
 # version: 1.0.0
 

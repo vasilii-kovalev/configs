@@ -1,9 +1,5 @@
 {
   "version": "1.0.0",
-  "exclude": [
-    "node_modules",
-    "src/**/*.test.ts"
-  ],
   "include": [
     "src"
   ],
