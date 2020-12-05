@@ -2,11 +2,75 @@
 
 One repository for all configs:
 
-* TypeScript configuration
-* ESLint
-* Stylelint
-* EditorConfig
-* Prettier
+* [EditorConfig](#editorconfig)
+* [Prettier](#prettier)
+* [TypeScript configuration](#typescript-configuration)
+  * [TypeScript configuration for React + TypeScript](#typescript-configuration-for-react--typescript)
+  * [TypeScript configuration for pure TypeScript](#typescript-configuration-for-pure-typescript)
+* [ESLint](#eslint)
+  * [ESLint configuration for React + TypeScript](#eslint-configuration-for-react--typescript)
+  * [ESLint configuration for pure TypeScript](#eslint-configuration-for-pure-typescript)
+* [Stylelint](#stylelint)
+
+## EditorConfig
+
+`.editorconfig`
+
+[Source](./.editorconfig)
+
+```editor-config
+# version: 1.1.0
+
+root = true
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+indent_style = space
+indent_size = 2
+max_line_length = 80
+trim_trailing_whitespace = true
+```
+
+## Prettier
+
+`.prettierrc`
+
+[Source](./.prettierrc)
+
+```json
+{
+  "version": "1.0.0",
+  "printWidth": 80,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": true,
+  "quoteProps": "as-needed",
+  "jsxSingleQuote": false,
+  "trailingComma": "all",
+  "bracketSpacing": true,
+  "jsxBracketSameLine": false,
+  "arrowParens": "avoid",
+  "endOfLine": "lf"
+}
+```
+
+`.prettierignore`
+
+[Source](./.prettierignore)
+
+```ignore
+# version: 1.0.0
+
+# Artifacts:
+.next
+build
+coverage
+
+# GitHub Workflow
+.github
+```
 
 ## TypeScript configuration
 
@@ -22,7 +86,7 @@ One repository for all configs:
 
 `tsconfig.json`
 
-[Source](https://github.com/vasilii-kovalev/useful_configs/blob/master/react-typescript/tsconfig.json)
+[Source](./react-typescript/tsconfig.json)
 
 ```jsonc
 {
@@ -95,7 +159,7 @@ One repository for all configs:
 
 `tsconfig.json`
 
-[Source](https://github.com/vasilii-kovalev/useful_configs/blob/master/typescript/tsconfig.json)
+[Source](./typescript/tsconfig.json)
 
 ```jsonc
 {
@@ -167,7 +231,7 @@ One repository for all configs:
 In order to lint tests, but don't compile them, it is necessary to have a
 separate `tsconfig.json` file [[learn more](https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/MONOREPO.md#one-root-tsconfigjson)].
 
-[Source](https://github.com/vasilii-kovalev/useful_configs/blob/master/typescript/tsconfig.eslint.json)
+[Source](./typescript/tsconfig.eslint.json)
 
 ```jsonc
 {
@@ -202,7 +266,7 @@ npm i -D eslint@^6.6.0 @typescript-eslint/parser eslint-config-airbnb-typescript
 
 `.eslintrc`
 
-[Source](https://github.com/vasilii-kovalev/useful_configs/blob/master/react-typescript/.eslintrc)
+[Source](./react-typescript/.eslintrc)
 
 ```jsonc
 {
@@ -277,7 +341,7 @@ npm i -D eslint@^6.6.0 @typescript-eslint/parser eslint-config-airbnb-typescript
 
 `.eslintignore`
 
-[Source](https://github.com/vasilii-kovalev/useful_configs/blob/master/react-typescript/.eslintignore)
+[Source](./react-typescript/.eslintignore)
 
 ```ignore
 # version: 1.0.0
@@ -303,7 +367,7 @@ npm i -D eslint @typescript-eslint/parser eslint-config-airbnb-base eslint-plugi
 
 `.eslintrc`
 
-[Source](https://github.com/vasilii-kovalev/useful_configs/blob/master/typescript/.eslintrc)
+[Source](./typescript/.eslintrc)
 
 ```jsonc
 {
@@ -401,7 +465,7 @@ npm i -D stylelint stylelint-config-css-modules stylelint-config-standard stylel
 
 `.stylelintrc`
 
-[Source](https://github.com/vasilii-kovalev/useful_configs/blob/master/.stylelintrc)
+[Source](./.stylelintrc)
 
 ```jsonc
 {
@@ -420,64 +484,4 @@ npm i -D stylelint stylelint-config-css-modules stylelint-config-standard stylel
     "scss/at-rule-no-unknown": true
   }
 }
-```
-
-## EditorConfig
-
-`.editorconfig`
-
-[Source](https://github.com/vasilii-kovalev/useful_configs/blob/master/.editorconfig)
-
-```editor-config
-# version: 1.1.0
-
-root = true
-
-[*]
-end_of_line = lf
-insert_final_newline = true
-indent_style = space
-indent_size = 2
-max_line_length = 80
-trim_trailing_whitespace = true
-```
-
-## Prettier
-
-`.prettierrc`
-
-[Source](https://github.com/vasilii-kovalev/useful_configs/blob/master/.prettierrc)
-
-```json
-{
-  "version": "1.0.0",
-  "printWidth": 80,
-  "tabWidth": 2,
-  "useTabs": false,
-  "semi": true,
-  "singleQuote": true,
-  "quoteProps": "as-needed",
-  "jsxSingleQuote": false,
-  "trailingComma": "all",
-  "bracketSpacing": true,
-  "jsxBracketSameLine": false,
-  "arrowParens": "avoid",
-  "endOfLine": "lf"
-}
-```
-
-`.prettierignore`
-
-[Source](./prettierignore)
-
-```ignore
-# version: 1.0.0
-
-# Artifacts:
-.next
-build
-coverage
-
-# GitHub Workflow
-.github
 ```
