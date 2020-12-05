@@ -14,9 +14,7 @@ One repository for all configs:
 
 ## EditorConfig
 
-`.editorconfig`
-
-[Source](./.editorconfig)
+`.editorconfig` [[source](./.editorconfig)]
 
 ```editor-config
 root = true
@@ -32,9 +30,7 @@ trim_trailing_whitespace = true
 
 ## Prettier
 
-`.prettierrc`
-
-[Source](./.prettierrc)
+`.prettierrc` [[source](./.prettierrc)]
 
 ```json
 {
@@ -53,9 +49,7 @@ trim_trailing_whitespace = true
 }
 ```
 
-`.prettierignore`
-
-[Source](./.prettierignore)
+`.prettierignore` [[source](./.prettierignore)]
 
 ```ignore
 # Artifacts:
@@ -79,152 +73,58 @@ coverage
 }
 ```
 
-`tsconfig.json`
-
-[Source](./react-typescript/tsconfig.json)
+`tsconfig.json` [[source](./react-typescript/tsconfig.json)]
 
 ```jsonc
 {
-  "include": ["src"],
   "compilerOptions": {
-    /* Basic Options */
-    // "incremental": true,
-    "target": "ESNext",
-    "module": "ESNext",
+    "target": "esnext",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
     "allowJs": true,
-    // "checkJs": true,
-    "jsx": "react",
-    "declaration": true,
-    // "declarationMap": true,
-    // "sourceMap": true,
-    // "outFile": "./",
-    // "outDir": "./lib",
-    "rootDir": "src",
-    // "composite": true,
-    // "tsBuildInfoFile": "./",
-    // "removeComments": true,
-    "noEmit": true,
-    // "importHelpers": true,
-    // "downlevelIteration": true,
-    "isolatedModules": true,
-    /* Strict Type-Checking Options */
-    "strict": true,
-    // "noImplicitAny": true,
-    // "strictNullChecks": true,
-    // "strictFunctionTypes": true,
-    // "strictBindCallApply": true,
-    // "strictPropertyInitialization": true,
-    // "noImplicitThis": true,
-    // "alwaysStrict": true,
-    /* Additional Checks */
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    // "noImplicitReturns": true,
-    // "noFallthroughCasesInSwitch": true,
-    /* Module Resolution Options */
-    "moduleResolution": "node",
-    "baseUrl": ".",
-    // "paths": {},
-    // "rootDirs": [],
-    // "typeRoots": [],
-    // "types": [],
-    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
     "esModuleInterop": true,
-    // "preserveSymlinks": true,
-    // "allowUmdGlobalAccess": true,
-    /* Source Map Options */
-    // "sourceRoot": "",
-    // "mapRoot": "",
-    // "inlineSourceMap": true,
-    // "inlineSources": true,
-    /* Experimental Options */
-    // "experimentalDecorators": true,
-    // "emitDecoratorMetadata": true,
-    /* Advanced Options */
-    "forceConsistentCasingInFileNames": true
-  }
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react",
+    "baseUrl": "src"
+  },
+  "include": ["src"]
 }
 ```
 
 ### TypeScript configuration for pure TypeScript
 
-`tsconfig.json`
-
-[Source](./typescript/tsconfig.json)
+`tsconfig.json` [[source](./typescript/tsconfig.json)]
 
 ```jsonc
 {
   "exclude": ["node_modules", "src/**/*.test.ts", "lib/*"],
   "compilerOptions": {
-    /* Basic Options */
-    // "incremental": true,
     "target": "es5",
     "module": "commonjs",
-    // "lib": [],
-    // "allowJs": true,
-    // "checkJs": true,
-    // "jsx": "preserve",
     "declaration": true,
-    // "declarationMap": true,
-    // "sourceMap": true,
-    // "outFile": "./",
     "outDir": "./lib",
     "rootDir": "src",
-    // "composite": true,
-    // "tsBuildInfoFile": "./",
-    // "removeComments": true,
-    // "noEmit": true,
-    // "importHelpers": true,
-    // "downlevelIteration": true,
     "isolatedModules": true,
-    /* Strict Type-Checking Options */
     "strict": true,
-    // "noImplicitAny": true,
-    // "strictNullChecks": true,
-    // "strictFunctionTypes": true,
-    // "strictBindCallApply": true,
-    // "strictPropertyInitialization": true,
-    // "noImplicitThis": true,
-    // "alwaysStrict": true,
-    /* Additional Checks */
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    // "noImplicitReturns": true,
-    // "noFallthroughCasesInSwitch": true,
-    /* Module Resolution Options */
-    // "moduleResolution": "node",
     "baseUrl": ".",
-    // "paths": {},
-    // "rootDirs": [],
-    // "typeRoots": [],
-    // "types": [],
-    // "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    // "preserveSymlinks": true,
-    // "allowUmdGlobalAccess": true,
-    /* Source Map Options */
-    // "sourceRoot": "",
-    // "mapRoot": "",
-    // "inlineSourceMap": true,
-    // "inlineSources": true,
-    /* Experimental Options */
-    // "experimentalDecorators": true,
-    // "emitDecoratorMetadata": true,
-    /* Advanced Options */
     "forceConsistentCasingInFileNames": true
   }
 }
 ```
 
-`tsconfig.eslint.json`
+`tsconfig.eslint.json` [[source](./typescript/tsconfig.eslint.json)]
 
 In order to lint tests, but don't compile them, it is necessary to have a
 separate `tsconfig.json` file [[learn more](https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/MONOREPO.md#one-root-tsconfigjson)].
-
-[Source](./typescript/tsconfig.eslint.json)
 
 ```jsonc
 {
@@ -256,9 +156,7 @@ npm i -D eslint@^6.6.0 @typescript-eslint/parser eslint-config-airbnb-typescript
 }
 ```
 
-`.eslintrc`
-
-[Source](./react-typescript/.eslintrc)
+`.eslintrc` [[source](./react-typescript/.eslintrc)]
 
 ```jsonc
 {
@@ -330,9 +228,7 @@ npm i -D eslint@^6.6.0 @typescript-eslint/parser eslint-config-airbnb-typescript
 }
 ```
 
-`.eslintignore`
-
-[Source](./react-typescript/.eslintignore)
+`.eslintignore` [[source](./react-typescript/.eslintignore)]
 
 ```ignore
 src/serviceWorker.ts
@@ -354,9 +250,7 @@ npm i -D eslint @typescript-eslint/parser eslint-config-airbnb-base eslint-plugi
 }
 ```
 
-`.eslintrc`
-
-[Source](./typescript/.eslintrc)
+`.eslintrc` [[source](./typescript/.eslintrc)]
 
 ```jsonc
 {
@@ -451,9 +345,7 @@ npm i -D stylelint stylelint-config-css-modules stylelint-config-standard stylel
 }
 ```
 
-`.stylelintrc`
-
-[Source](./.stylelintrc)
+`.stylelintrc` [[source](./.stylelintrc)]
 
 ```jsonc
 {
