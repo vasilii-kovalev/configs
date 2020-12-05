@@ -30,6 +30,21 @@ trim_trailing_whitespace = true
 
 ## Prettier
 
+Installation script
+
+```shell
+npm i -D -E prettier
+```
+
+`package.json` scripts
+
+```json
+{
+  "prettier:check": "prettier --check .",
+  "prettier:write": "prettier --write ."
+}
+```
+
 `.prettierrc` [[source](./.prettierrc)]
 
 ```json
@@ -55,6 +70,8 @@ trim_trailing_whitespace = true
 # Artifacts:
 .next
 build
+dist
+lib
 coverage
 
 # GitHub Workflow
@@ -101,6 +118,12 @@ coverage
 
 ### TypeScript configuration for pure TypeScript
 
+Installation script
+
+```shell
+npm i -D -E typescript @types/node
+```
+
 `tsconfig.json` [[source](./typescript/tsconfig.json)]
 
 ```jsonc
@@ -142,12 +165,6 @@ separate `tsconfig.json` file [[learn more](https://github.com/typescript-eslint
 
 ### ESLint configuration for React + TypeScript
 
-Installation script
-
-```shell
-npm i -D eslint@^6.6.0 @typescript-eslint/parser eslint-config-airbnb-typescript eslint-plugin-import@^2.22.0 eslint-plugin-jsx-a11y@^6.3.1 eslint-plugin-react@^7.20.3 eslint-plugin-react-hooks@^4.0.8 @typescript-eslint/eslint-plugin@^3.6.1
-```
-
 `package.json` script
 
 ```json
@@ -160,71 +177,7 @@ npm i -D eslint@^6.6.0 @typescript-eslint/parser eslint-config-airbnb-typescript
 
 ```jsonc
 {
-  "plugins": ["@typescript-eslint"],
-  "extends": ["airbnb-typescript", "react-app"],
-  "rules": {
-    "arrow-parens": ["error", "as-needed"],
-    "indent": "off",
-    "linebreak-style": "off",
-    "max-len": [
-      "error",
-      {
-        "code": 80,
-        "ignoreComments": true
-      }
-    ],
-    "no-unused-vars": "off",
-    "sort-imports": [
-      "error",
-      {
-        "ignoreCase": false,
-        "ignoreDeclarationSort": true,
-        "ignoreMemberSort": false
-      }
-    ],
-    "@typescript-eslint/indent": ["error", 2],
-    "@typescript-eslint/no-unused-vars": ["error"],
-    "import/order": [
-      "error",
-      {
-        "groups": [
-          "builtin",
-          "external",
-          "internal",
-          "parent",
-          "sibling",
-          "index"
-        ],
-        "pathGroups": [
-          {
-            "pattern": "src/**",
-            "group": "internal",
-            "position": "after"
-          }
-        ],
-        "pathGroupsExcludedImportTypes": ["builtin"],
-        "newlines-between": "always",
-        "alphabetize": {
-          "order": "asc",
-          "caseInsensitive": false
-        }
-      }
-    ],
-    "import/prefer-default-export": "off",
-    "react/jsx-props-no-spreading": "off",
-    "react/prop-types": "off"
-  },
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "project": "tsconfig.json"
-  },
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "extensions": [".ts", ".tsx"]
-      }
-    }
-  }
+  "extends": ["react-app", "react-app/jest"]
 }
 ```
 
@@ -239,7 +192,7 @@ src/serviceWorker.ts
 Installation script
 
 ```shell
-npm i -D eslint @typescript-eslint/parser eslint-config-airbnb-base eslint-plugin-import@^2.22.0 @typescript-eslint/eslint-plugin@^3.6.1
+npm i -D eslint @typescript-eslint/parser eslint-plugin-import
 ```
 
 `package.json` script
@@ -254,60 +207,13 @@ npm i -D eslint @typescript-eslint/parser eslint-config-airbnb-base eslint-plugi
 
 ```jsonc
 {
-  "plugins": ["@typescript-eslint"],
-  "extends": ["eslint-config-airbnb-base"],
   "rules": {
-    "arrow-parens": ["error", "as-needed"],
-    "indent": "off",
-    "linebreak-style": "off",
-    "max-len": [
-      "error",
-      {
-        "code": 80,
-        "ignoreComments": true
-      }
-    ],
-    "no-unused-vars": "off",
     "sort-imports": [
       "error",
       {
         "ignoreCase": false,
         "ignoreDeclarationSort": true,
         "ignoreMemberSort": false
-      }
-    ],
-    "@typescript-eslint/indent": ["error", 2],
-    "@typescript-eslint/no-unused-vars": ["error"],
-    "import/order": [
-      "error",
-      {
-        "groups": [
-          "builtin",
-          "external",
-          "internal",
-          "parent",
-          "sibling",
-          "index"
-        ],
-        "pathGroups": [
-          {
-            "pattern": "src/**",
-            "group": "internal",
-            "position": "after"
-          }
-        ],
-        "pathGroupsExcludedImportTypes": ["builtin"],
-        "newlines-between": "always",
-        "alphabetize": {
-          "order": "asc",
-          "caseInsensitive": false
-        }
-      }
-    ],
-    "import/extensions": [
-      "error",
-      {
-        "ts": "never"
       }
     ],
     "import/prefer-default-export": "off"
