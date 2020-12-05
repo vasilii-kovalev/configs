@@ -1,6 +1,6 @@
-# Useful configs
+# Configs
 
-One repository for all configs:
+The umbrella repository for all configs, used in web development.
 
 * [EditorConfig](#editorconfig)
 * [Prettier](#prettier)
