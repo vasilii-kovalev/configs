@@ -1,16 +1,9 @@
 {
-  // "version": "1.0.0",
-  "plugins": [
-    "@typescript-eslint"
-  ],
-  "extends": [
-    "eslint-config-airbnb-base"
-  ],
+  // "version": "1.0.1",
+  "plugins": ["@typescript-eslint"],
+  "extends": ["eslint-config-airbnb-base"],
   "rules": {
-    "arrow-parens": [
-      "error",
-      "as-needed"
-    ],
+    "arrow-parens": ["error", "as-needed"],
     "indent": "off",
     "linebreak-style": "off",
     "max-len": [
@@ -29,13 +22,8 @@
         "ignoreMemberSort": false
       }
     ],
-    "@typescript-eslint/indent": [
-      "error",
-      2
-    ],
-    "@typescript-eslint/no-unused-vars": [
-      "error"
-    ],
+    "@typescript-eslint/indent": ["error", 2],
+    "@typescript-eslint/no-unused-vars": ["error"],
     "import/order": [
       "error",
       {
@@ -54,9 +42,7 @@
             "position": "after"
           }
         ],
-        "pathGroupsExcludedImportTypes": [
-          "builtin"
-        ],
+        "pathGroupsExcludedImportTypes": ["builtin"],
         "newlines-between": "always",
         "alphabetize": {
           "order": "asc",
@@ -82,9 +68,7 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [
-          ".ts"
-        ]
+        "extensions": [".ts"]
       }
     }
   }

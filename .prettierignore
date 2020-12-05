@@ -1,0 +1,9 @@
+# version: 1.0.0
+
+# Artifacts:
+.next
+build
+coverage
+
+# GitHub Workflow
+.github

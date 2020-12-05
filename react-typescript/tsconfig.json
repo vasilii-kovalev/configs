@@ -1,18 +1,12 @@
 {
-  "version": "1.0.0",
-  "include": [
-    "src"
-  ],
+  "version": "1.0.1",
+  "include": ["src"],
   "compilerOptions": {
     /* Basic Options */
     // "incremental": true,
     "target": "ESNext",
     "module": "ESNext",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "allowJs": true,

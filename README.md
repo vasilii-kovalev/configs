@@ -1,39 +1,39 @@
 # Useful configs
 
 One repository for all configs:
-* tsconfig.json
+
+* TypeScript configuration
 * ESLint
 * Stylelint
 * EditorConfig
+* Prettier
 
-## tsconfig.json
-#### npm script
+## TypeScript configuration
+
+### TypeScript configuration for React + TypeScript
+
+`package.json` script
+
 ```json
 {
   "tslint": "tsc --noEmit"
 }
 ```
 
-### React
-#### tsconfig.json
-[Source](https://github.com/vasilii-kovalev/useful_configs/blob/master/react/tsconfig.json)
+`tsconfig.json`
+
+[Source](https://github.com/vasilii-kovalev/useful_configs/blob/master/react-typescript/tsconfig.json)
 
 ```jsonc
 {
-  "version": "1.0.0",
-  "include": [
-    "src"
-  ],
+  "version": "1.0.1",
+  "include": ["src"],
   "compilerOptions": {
     /* Basic Options */
     // "incremental": true,
     "target": "ESNext",
     "module": "ESNext",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "allowJs": true,
@@ -91,18 +91,16 @@ One repository for all configs:
 }
 ```
 
-### TypeScript
-#### tsconfig.json
+### TypeScript configuration for pure TypeScript
+
+`tsconfig.json`
+
 [Source](https://github.com/vasilii-kovalev/useful_configs/blob/master/typescript/tsconfig.json)
 
 ```jsonc
 {
-  "version": "1.0.0",
-  "exclude": [
-    "node_modules",
-    "src/**/*.test.ts",
-    "lib/*"
-  ],
+  "version": "1.0.1",
+  "exclude": ["node_modules", "src/**/*.test.ts", "lib/*"],
   "compilerOptions": {
     /* Basic Options */
     // "incremental": true,
@@ -164,58 +162,55 @@ One repository for all configs:
 }
 ```
 
-#### tsconfig.eslint.json
+`tsconfig.eslint.json`
+
 In order to lint tests, but don't compile them, it is necessary to have a
-separate `tsconfig.json` file [[more](https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/MONOREPO.md#one-root-tsconfigjson)].
+separate `tsconfig.json` file [[learn more](https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/MONOREPO.md#one-root-tsconfigjson)].
 
 [Source](https://github.com/vasilii-kovalev/useful_configs/blob/master/typescript/tsconfig.eslint.json)
 
 ```jsonc
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "extends": "./tsconfig.json",
   "exclude": [],
-  "include": [
-    "src"
-  ],
+  "include": ["src"],
   "compilerOptions": {
     "noEmit": true
   }
 }
+
 ```
 
 ## ESlint
-### React
-#### Install
+
+### ESLint configuration for React + TypeScript
+
+Installation script
+
 ```shell
 npm i -D eslint@^6.6.0 @typescript-eslint/parser eslint-config-airbnb-typescript eslint-plugin-import@^2.22.0 eslint-plugin-jsx-a11y@^6.3.1 eslint-plugin-react@^7.20.3 eslint-plugin-react-hooks@^4.0.8 @typescript-eslint/eslint-plugin@^3.6.1
 ```
 
-#### npm script
+`package.json` script
+
 ```json
 {
   "eslint": "eslint --ext .ts,.tsx src --color"
 }
 ```
 
-#### .eslintrc
-[Source](https://github.com/vasilii-kovalev/useful_configs/blob/master/react/.eslintrc)
+`.eslintrc`
+
+[Source](https://github.com/vasilii-kovalev/useful_configs/blob/master/react-typescript/.eslintrc)
 
 ```jsonc
 {
-  // "version": "1.0.0",
-  "plugins": [
-    "@typescript-eslint"
-  ],
-  "extends": [
-    "airbnb-typescript",
-    "react-app"
-  ],
+  // "version": "1.0.1",
+  "plugins": ["@typescript-eslint"],
+  "extends": ["airbnb-typescript", "react-app"],
   "rules": {
-    "arrow-parens": [
-      "error",
-      "as-needed"
-    ],
+    "arrow-parens": ["error", "as-needed"],
     "indent": "off",
     "linebreak-style": "off",
     "max-len": [
@@ -234,13 +229,8 @@ npm i -D eslint@^6.6.0 @typescript-eslint/parser eslint-config-airbnb-typescript
         "ignoreMemberSort": false
       }
     ],
-    "@typescript-eslint/indent": [
-      "error",
-      2
-    ],
-    "@typescript-eslint/no-unused-vars": [
-      "error"
-    ],
+    "@typescript-eslint/indent": ["error", 2],
+    "@typescript-eslint/no-unused-vars": ["error"],
     "import/order": [
       "error",
       {
@@ -259,9 +249,7 @@ npm i -D eslint@^6.6.0 @typescript-eslint/parser eslint-config-airbnb-typescript
             "position": "after"
           }
         ],
-        "pathGroupsExcludedImportTypes": [
-          "builtin"
-        ],
+        "pathGroupsExcludedImportTypes": ["builtin"],
         "newlines-between": "always",
         "alphabetize": {
           "order": "asc",
@@ -280,18 +268,16 @@ npm i -D eslint@^6.6.0 @typescript-eslint/parser eslint-config-airbnb-typescript
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [
-          ".ts",
-          ".tsx"
-        ]
+        "extensions": [".ts", ".tsx"]
       }
     }
   }
 }
 ```
 
-#### .eslintignore
-[Source](https://github.com/vasilii-kovalev/useful_configs/blob/master/react/.eslintignore)
+`.eslintignore`
+
+[Source](https://github.com/vasilii-kovalev/useful_configs/blob/master/react-typescript/.eslintignore)
 
 ```ignore
 # version: 1.0.0
@@ -299,36 +285,33 @@ npm i -D eslint@^6.6.0 @typescript-eslint/parser eslint-config-airbnb-typescript
 src/serviceWorker.ts
 ```
 
-### TypeScript
-#### Install
+### ESLint configuration for pure TypeScript
+
+Installation script
+
 ```shell
 npm i -D eslint @typescript-eslint/parser eslint-config-airbnb-base eslint-plugin-import@^2.22.0 @typescript-eslint/eslint-plugin@^3.6.1
 ```
 
-#### npm script
+`package.json` script
+
 ```json
 {
   "eslint": "eslint --ext .ts src --color"
 }
 ```
 
-#### .eslintrc
+`.eslintrc`
+
 [Source](https://github.com/vasilii-kovalev/useful_configs/blob/master/typescript/.eslintrc)
 
 ```jsonc
 {
-  // "version": "1.0.0",
-  "plugins": [
-    "@typescript-eslint"
-  ],
-  "extends": [
-    "eslint-config-airbnb-base"
-  ],
+  // "version": "1.0.1",
+  "plugins": ["@typescript-eslint"],
+  "extends": ["eslint-config-airbnb-base"],
   "rules": {
-    "arrow-parens": [
-      "error",
-      "as-needed"
-    ],
+    "arrow-parens": ["error", "as-needed"],
     "indent": "off",
     "linebreak-style": "off",
     "max-len": [
@@ -347,13 +330,8 @@ npm i -D eslint @typescript-eslint/parser eslint-config-airbnb-base eslint-plugi
         "ignoreMemberSort": false
       }
     ],
-    "@typescript-eslint/indent": [
-      "error",
-      2
-    ],
-    "@typescript-eslint/no-unused-vars": [
-      "error"
-    ],
+    "@typescript-eslint/indent": ["error", 2],
+    "@typescript-eslint/no-unused-vars": ["error"],
     "import/order": [
       "error",
       {
@@ -372,9 +350,7 @@ npm i -D eslint @typescript-eslint/parser eslint-config-airbnb-base eslint-plugi
             "position": "after"
           }
         ],
-        "pathGroupsExcludedImportTypes": [
-          "builtin"
-        ],
+        "pathGroupsExcludedImportTypes": ["builtin"],
         "newlines-between": "always",
         "alphabetize": {
           "order": "asc",
@@ -400,9 +376,7 @@ npm i -D eslint @typescript-eslint/parser eslint-config-airbnb-base eslint-plugi
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [
-          ".ts"
-        ]
+        "extensions": [".ts"]
       }
     }
   }
@@ -410,24 +384,28 @@ npm i -D eslint @typescript-eslint/parser eslint-config-airbnb-base eslint-plugi
 ```
 
 ## Stylelint
-#### Install
+
+Installation script
+
 ```shell
 npm i -D stylelint stylelint-config-css-modules stylelint-config-standard stylelint-order stylelint-scss
 ```
 
-#### npm script
+`package.json` script
+
 ```json
 {
   "stylelint": "stylelint **/*.scss --color"
 }
 ```
 
-#### .stylelintrc
+`.stylelintrc`
+
 [Source](https://github.com/vasilii-kovalev/useful_configs/blob/master/.stylelintrc)
 
 ```jsonc
 {
-  // "version": "1.0.0",
+  "version": "1.0.1",
   "plugins": [
     "stylelint-scss",
     "stylelint-order"
@@ -445,17 +423,61 @@ npm i -D stylelint stylelint-config-css-modules stylelint-config-standard stylel
 ```
 
 ## EditorConfig
-#### .editorconfig
+
+`.editorconfig`
+
 [Source](https://github.com/vasilii-kovalev/useful_configs/blob/master/.editorconfig)
 
 ```editor-config
-# version: 1.0.0
+# version: 1.1.0
 
 root = true
 
 [*]
+end_of_line = lf
 insert_final_newline = true
-charset = utf-8
 indent_style = space
 indent_size = 2
+max_line_length = 80
+trim_trailing_whitespace = true
+```
+
+## Prettier
+
+`.prettierrc`
+
+[Source](https://github.com/vasilii-kovalev/useful_configs/blob/master/.prettierrc)
+
+```json
+{
+  "version": "1.0.0",
+  "printWidth": 80,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": true,
+  "quoteProps": "as-needed",
+  "jsxSingleQuote": false,
+  "trailingComma": "all",
+  "bracketSpacing": true,
+  "jsxBracketSameLine": false,
+  "arrowParens": "avoid",
+  "endOfLine": "lf"
+}
+```
+
+`.prettierignore`
+
+[Source](./prettierignore)
+
+```ignore
+# version: 1.0.0
+
+# Artifacts:
+.next
+build
+coverage
+
+# GitHub Workflow
+.github
 ```
