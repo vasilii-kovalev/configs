@@ -1,5 +1,4 @@
 {
-  // "version": "1.0.1",
   "plugins": ["@typescript-eslint"],
   "extends": ["airbnb-typescript", "react-app"],
   "rules": {

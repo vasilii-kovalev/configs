@@ -19,8 +19,6 @@ One repository for all configs:
 [Source](./.editorconfig)
 
 ```editor-config
-# version: 1.1.0
-
 root = true
 
 [*]
@@ -40,7 +38,6 @@ trim_trailing_whitespace = true
 
 ```json
 {
-  "version": "1.0.0",
   "printWidth": 80,
   "tabWidth": 2,
   "useTabs": false,
@@ -61,8 +58,6 @@ trim_trailing_whitespace = true
 [Source](./.prettierignore)
 
 ```ignore
-# version: 1.0.0
-
 # Artifacts:
 .next
 build
@@ -90,7 +85,6 @@ coverage
 
 ```jsonc
 {
-  "version": "1.0.1",
   "include": ["src"],
   "compilerOptions": {
     /* Basic Options */
@@ -163,7 +157,6 @@ coverage
 
 ```jsonc
 {
-  "version": "1.0.1",
   "exclude": ["node_modules", "src/**/*.test.ts", "lib/*"],
   "compilerOptions": {
     /* Basic Options */
@@ -235,7 +228,6 @@ separate `tsconfig.json` file [[learn more](https://github.com/typescript-eslint
 
 ```jsonc
 {
-  "version": "1.0.1",
   "extends": "./tsconfig.json",
   "exclude": [],
   "include": ["src"],
@@ -270,7 +262,6 @@ npm i -D eslint@^6.6.0 @typescript-eslint/parser eslint-config-airbnb-typescript
 
 ```jsonc
 {
-  // "version": "1.0.1",
   "plugins": ["@typescript-eslint"],
   "extends": ["airbnb-typescript", "react-app"],
   "rules": {
@@ -344,8 +335,6 @@ npm i -D eslint@^6.6.0 @typescript-eslint/parser eslint-config-airbnb-typescript
 [Source](./react-typescript/.eslintignore)
 
 ```ignore
-# version: 1.0.0
-
 src/serviceWorker.ts
 ```
 
@@ -371,7 +360,6 @@ npm i -D eslint @typescript-eslint/parser eslint-config-airbnb-base eslint-plugi
 
 ```jsonc
 {
-  // "version": "1.0.1",
   "plugins": ["@typescript-eslint"],
   "extends": ["eslint-config-airbnb-base"],
   "rules": {
@@ -469,7 +457,6 @@ npm i -D stylelint stylelint-config-css-modules stylelint-config-standard stylel
 
 ```jsonc
 {
-  "version": "1.0.1",
   "plugins": [
     "stylelint-scss",
     "stylelint-order"
