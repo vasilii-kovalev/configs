@@ -258,18 +258,18 @@ npm i -D stylelint stylelint-config-css-modules stylelint-config-standard stylel
 
 Extensions
 
-- [One Monokai Theme](https://marketplace.visualstudio.com/items?itemName=azemoh.one-monokai)
 - [Bracket Pair Colorizer 2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2)
-- [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
+- [browserslist](https://marketplace.visualstudio.com/items?itemName=webben.browserslist)
+- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 - [GitLens — Git supercharged](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
-- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-- [Path Autocomplete](https://marketplace.visualstudio.com/items?itemName=ionutvmi.path-autocomplete)
+- [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
 - [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
-- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+- [One Monokai Theme](https://marketplace.visualstudio.com/items?itemName=azemoh.one-monokai)
+- [Path Autocomplete](https://marketplace.visualstudio.com/items?itemName=ionutvmi.path-autocomplete)
+- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - [Russian - Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-russian)
 - [stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
-- [browserslist](https://marketplace.visualstudio.com/items?itemName=webben.browserslist)
 
 _Note: run `code --list-extensions` in terminal to get extensions list._
 
