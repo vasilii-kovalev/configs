@@ -2,16 +2,6 @@
 
 The umbrella repository for all configs, used in web development.
 
-* [EditorConfig](#editorconfig)
-* [Prettier](#prettier)
-* [TypeScript configuration](#typescript-configuration)
-  * [TypeScript configuration for React + TypeScript](#typescript-configuration-for-react--typescript)
-  * [TypeScript configuration for pure TypeScript](#typescript-configuration-for-pure-typescript)
-* [ESLint](#eslint)
-  * [ESLint configuration for React + TypeScript](#eslint-configuration-for-react--typescript)
-  * [ESLint configuration for pure TypeScript](#eslint-configuration-for-pure-typescript)
-* [Stylelint](#stylelint)
-
 ## EditorConfig
 
 `.editorconfig` [[source](./.editorconfig)]
@@ -20,10 +10,10 @@ The umbrella repository for all configs, used in web development.
 root = true
 
 [*]
-end_of_line = lf
-insert_final_newline = true
-indent_style = space
+charset = utf-8
 indent_size = 2
+indent_style = space
+insert_final_newline = true
 max_line_length = 80
 trim_trailing_whitespace = true
 ```
@@ -41,7 +31,7 @@ npm i -D -E prettier
 ```json
 {
   "prettier:check": "prettier --check .",
-  "prettier:write": "prettier --write ."
+  "prettier:fix": "prettier --write ."
 }
 ```
 
@@ -49,18 +39,18 @@ npm i -D -E prettier
 
 ```json
 {
-  "printWidth": 80,
-  "tabWidth": 2,
-  "useTabs": false,
-  "semi": true,
-  "singleQuote": true,
-  "quoteProps": "as-needed",
-  "jsxSingleQuote": false,
-  "trailingComma": "all",
-  "bracketSpacing": true,
-  "jsxBracketSameLine": false,
   "arrowParens": "avoid",
-  "endOfLine": "lf"
+  "bracketSpacing": true,
+  "endOfLine": "auto",
+  "jsxBracketSameLine": false,
+  "jsxSingleQuote": false,
+  "printWidth": 80,
+  "quoteProps": "as-needed",
+  "semi": true,
+  "singleQuote": false,
+  "tabWidth": 2,
+  "trailingComma": "all",
+  "useTabs": false
 }
 ```
 
@@ -82,7 +72,7 @@ coverage
 
 ### TypeScript configuration for React + TypeScript
 
-`package.json` script
+`package.json` scripts
 
 ```json
 {
@@ -95,22 +85,22 @@ coverage
 ```jsonc
 {
   "compilerOptions": {
-    "target": "esnext",
-    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
+    "baseUrl": "src",
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
+    "isolatedModules": true,
+    "jsx": "react",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "module": "esnext",
     "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react",
-    "baseUrl": "src"
+    "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "esnext"
   },
   "include": ["src"]
 }
@@ -128,19 +118,19 @@ npm i -D -E typescript @types/node
 
 ```jsonc
 {
-  "exclude": ["node_modules", "src/**/*.test.ts", "lib/*"],
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
+    "baseUrl": ".",
     "declaration": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "module": "commonjs",
     "outDir": "./lib",
     "rootDir": "src",
-    "isolatedModules": true,
     "strict": true,
-    "baseUrl": ".",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true
-  }
+    "target": "es5"
+  },
+  "exclude": ["node_modules", "src/**/*.test.ts", "lib/*"]
 }
 ```
 
@@ -151,21 +141,20 @@ separate `tsconfig.json` file [[learn more](https://github.com/typescript-eslint
 
 ```jsonc
 {
-  "extends": "./tsconfig.json",
-  "exclude": [],
-  "include": ["src"],
   "compilerOptions": {
     "noEmit": true
-  }
+  },
+  "exclude": [],
+  "extends": "./tsconfig.json",
+  "include": ["src"]
 }
-
 ```
 
 ## ESlint
 
 ### ESLint configuration for React + TypeScript
 
-`package.json` script
+`package.json` scripts
 
 ```json
 {
@@ -195,7 +184,7 @@ Installation script
 npm i -D eslint @typescript-eslint/parser eslint-plugin-import
 ```
 
-`package.json` script
+`package.json` scripts
 
 ```json
 {
@@ -243,11 +232,11 @@ Installation script
 npm i -D stylelint stylelint-config-css-modules stylelint-config-standard stylelint-order stylelint-scss
 ```
 
-`package.json` script
+`package.json` scripts
 
 ```json
 {
-  "stylelint": "stylelint **/*.scss --color"
+  "stylelint": "stylelint /*.scss --color"
 }
 ```
 
@@ -255,14 +244,8 @@ npm i -D stylelint stylelint-config-css-modules stylelint-config-standard stylel
 
 ```jsonc
 {
-  "plugins": [
-    "stylelint-scss",
-    "stylelint-order"
-  ],
-  "extends": [
-    "stylelint-config-standard",
-    "stylelint-config-css-modules"
-  ],
+  "plugins": ["stylelint-scss", "stylelint-order"],
+  "extends": ["stylelint-config-standard", "stylelint-config-css-modules"],
   "rules": {
     "at-rule-no-unknown": null,
     "order/properties-alphabetical-order": true,

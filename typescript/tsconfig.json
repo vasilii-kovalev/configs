@@ -1,15 +1,15 @@
 {
-  "exclude": ["node_modules", "src/**/*.test.ts", "lib/*"],
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
+    "baseUrl": ".",
     "declaration": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "module": "commonjs",
     "outDir": "./lib",
     "rootDir": "src",
-    "isolatedModules": true,
     "strict": true,
-    "baseUrl": ".",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true
-  }
+    "target": "es5"
+  },
+  "exclude": ["node_modules", "src/**/*.test.ts", "lib/*"]
 }
