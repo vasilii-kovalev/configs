@@ -253,3 +253,82 @@ npm i -D stylelint stylelint-config-css-modules stylelint-config-standard stylel
   }
 }
 ```
+
+## Visual Studio Code
+
+Extensions
+
+- [One Monokai Theme](https://marketplace.visualstudio.com/items?itemName=azemoh.one-monokai)
+- [Bracket Pair Colorizer 2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2)
+- [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [GitLens — Git supercharged](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [Path Autocomplete](https://marketplace.visualstudio.com/items?itemName=ionutvmi.path-autocomplete)
+- [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
+- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+- [Russian - Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-russian)
+- [stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
+- [browserslist](https://marketplace.visualstudio.com/items?itemName=webben.browserslist)
+
+_Note: run `code --list-extensions` in terminal to get extensions list._
+
+Config [[source](./vs-code-config.json)]
+
+```jsonc
+{
+  "[browserslist]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "cSpell.enableFiletypes": ["diff", "jsx-tags", "xml"],
+  "cSpell.language": "en,ru,ru-RU,en-GB,en-US",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.formatOnSave": false,
+  "editor.linkedEditing": true,
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [80],
+  "editor.tabSize": 2,
+  "explorer.compactFolders": false,
+  "files.associations": {
+    ".huskyrc": "json",
+    ".lintstagedrc": "json",
+    ".stylelintrc": "json"
+  },
+  "files.autoSave": "off",
+  "files.insertFinalNewline": true,
+  "git.allowNoVerifyCommit": true,
+  "git.confirmSync": false,
+  "gitlens.views.remotes.branches.layout": "tree",
+  "gitlens.views.stashes.files.layout": "tree",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "path-autocomplete.extensionOnImport": true,
+  "workbench.colorTheme": "One Monokai",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.startupEditor": "none"
+}
+```

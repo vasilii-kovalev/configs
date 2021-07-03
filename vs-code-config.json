@@ -1,0 +1,55 @@
+{
+  "[browserslist]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "cSpell.enableFiletypes": ["diff", "jsx-tags", "xml"],
+  "cSpell.language": "en,ru,ru-RU,en-GB,en-US",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.formatOnSave": false,
+  "editor.linkedEditing": true,
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [80],
+  "editor.tabSize": 2,
+  "explorer.compactFolders": false,
+  "files.associations": {
+    ".huskyrc": "json",
+    ".lintstagedrc": "json",
+    ".stylelintrc": "json"
+  },
+  "files.autoSave": "off",
+  "files.insertFinalNewline": true,
+  "git.allowNoVerifyCommit": true,
+  "git.confirmSync": false,
+  "gitlens.views.remotes.branches.layout": "tree",
+  "gitlens.views.stashes.files.layout": "tree",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "path-autocomplete.extensionOnImport": true,
+  "workbench.colorTheme": "One Monokai",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.startupEditor": "none"
+}
