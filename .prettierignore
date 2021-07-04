@@ -7,3 +7,6 @@ coverage
 
 # GitHub Workflow
 .github
+
+# MSW generated service worker
+public/mockServiceWorker.js

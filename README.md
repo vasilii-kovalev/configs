@@ -23,7 +23,7 @@ trim_trailing_whitespace = true
 Installation script
 
 ```shell
-npm i -D -E prettier
+yarn add -D -E prettier
 ```
 
 `package.json` scripts
@@ -160,7 +160,7 @@ export default viteConfig;
 Installation script
 
 ```shell
-npm i -D typescript jest @types/jest ts-jest
+yarn add -D typescript jest @types/jest ts-jest
 ```
 
 `package.json` scripts
@@ -235,11 +235,16 @@ npm i -D typescript jest @types/jest ts-jest
 
 ### ESLint configuration for React + TypeScript
 
+```shell
+yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-plugin-prettier eslint-plugin-import eslint-plugin-react eslint-plugin-react-hooks
+```
+
 `package.json` scripts
 
 ```json
 {
-  "eslint": "eslint --ext .ts,.tsx src --color"
+  "eslint:check": "eslint --ext .ts,.tsx src --color",
+  "eslint:fix": "yarn eslint:check --fix"
 }
 ```
 
@@ -247,14 +252,38 @@ npm i -D typescript jest @types/jest ts-jest
 
 ```jsonc
 {
-  "extends": ["react-app", "react-app/jest"]
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "rules": {
+    "import/prefer-default-export": "off",
+    "react/prop-types": "off",
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": false,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false
+      }
+    ]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
 }
 ```
 
 `.eslintignore` [[source](./react-typescript/.eslintignore)]
 
 ```ignore
-src/serviceWorker.ts
+src/mocks
 ```
 
 ### ESLint configuration for pure TypeScript
@@ -262,7 +291,7 @@ src/serviceWorker.ts
 Installation script
 
 ```shell
-npm i -D eslint @typescript-eslint/parser eslint-plugin-import
+yarn add -D eslint @typescript-eslint/parser eslint-plugin-import
 ```
 
 `package.json` scripts
@@ -297,7 +326,7 @@ npm i -D eslint @typescript-eslint/parser eslint-plugin-import
 Installation script
 
 ```shell
-npm i -D stylelint stylelint-config-css-modules stylelint-config-standard stylelint-order stylelint-scss
+yarn add -D stylelint stylelint-config-css-modules stylelint-config-standard stylelint-order stylelint-scss
 ```
 
 `package.json` scripts
@@ -383,6 +412,7 @@ Config [[source](./vs-code-config.json)]
   "editor.tabSize": 2,
   "explorer.compactFolders": false,
   "files.associations": {
+    ".eslintignore": "ignore",
     ".huskyrc": "json",
     ".lintstagedrc": "json",
     ".stylelintrc": "json"
