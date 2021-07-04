@@ -291,14 +291,15 @@ src/mocks
 Installation script
 
 ```shell
-yarn add -D eslint @typescript-eslint/parser eslint-plugin-import
+yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-plugin-prettier eslint-plugin-import
 ```
 
 `package.json` scripts
 
 ```json
 {
-  "eslint": "eslint --ext .ts src --color"
+  "eslint:check": "eslint --ext .ts src --color",
+  "eslint:fix": "yarn eslint:check --fix"
 }
 ```
 
@@ -306,6 +307,11 @@ yarn add -D eslint @typescript-eslint/parser eslint-plugin-import
 
 ```jsonc
 {
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:prettier/recommended"
+  ],
   "parser": "@typescript-eslint/parser",
   "rules": {
     "import/prefer-default-export": "off",
