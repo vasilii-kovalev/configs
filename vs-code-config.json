@@ -30,6 +30,10 @@
   "cSpell.enableFiletypes": ["diff", "jsx-tags", "xml"],
   "cSpell.language": "en,ru,ru-RU,en-GB,en-US",
   "diffEditor.ignoreTrimWhitespace": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
   "editor.formatOnSave": false,
   "editor.linkedEditing": true,
   "editor.renderWhitespace": "all",

@@ -66,9 +66,14 @@ coverage
 
 # GitHub Workflow
 .github
+
+# MSW generated service worker
+public/mockServiceWorker.js
 ```
 
 ## Git ignore
+
+`.gitignore` [[source](./.gitignore)]
 
 ```ignore
 # Artifacts
@@ -84,7 +89,7 @@ node_modules
 
 ## TypeScript configuration
 
-### TypeScript configuration for React + TypeScript
+### React + TypeScript
 
 `package.json` scripts
 
@@ -155,7 +160,7 @@ const viteConfig = defineConfig({
 export default viteConfig;
 ```
 
-### TypeScript configuration for pure TypeScript
+### Pure TypeScript
 
 Installation script
 
@@ -233,7 +238,7 @@ yarn add -D typescript jest @types/jest ts-jest
 
 ## ESlint
 
-### ESLint configuration for React + TypeScript
+### React + TypeScript
 
 ```shell
 yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-plugin-prettier eslint-plugin-import eslint-plugin-react eslint-plugin-react-hooks
@@ -283,10 +288,11 @@ yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser es
 `.eslintignore` [[source](./react-typescript/.eslintignore)]
 
 ```ignore
+# MSW mocks
 src/mocks
 ```
 
-### ESLint configuration for pure TypeScript
+### Pure TypeScript
 
 Installation script
 
@@ -339,7 +345,8 @@ yarn add -D stylelint stylelint-config-css-modules stylelint-config-standard sty
 
 ```json
 {
-  "stylelint": "stylelint /*.scss --color"
+  "stylelint:check": "stylelint src/**/*.scss --color",
+  "stylelint:fix": "yarn stylelint:check --fix"
 }
 ```
 
@@ -411,6 +418,10 @@ Config [[source](./vs-code-config.json)]
   "cSpell.enableFiletypes": ["diff", "jsx-tags", "xml"],
   "cSpell.language": "en,ru,ru-RU,en-GB,en-US",
   "diffEditor.ignoreTrimWhitespace": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
   "editor.formatOnSave": false,
   "editor.linkedEditing": true,
   "editor.renderWhitespace": "all",
