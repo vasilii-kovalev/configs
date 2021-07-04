@@ -57,15 +57,29 @@ npm i -D -E prettier
 `.prettierignore` [[source](./.prettierignore)]
 
 ```ignore
-# Artifacts:
-.next
+# Artifacts
 build
 dist
-lib
+
+# Coverage directory
 coverage
 
 # GitHub Workflow
 .github
+```
+
+## Git ignore
+
+```ignore
+# Artifacts
+build
+dist
+
+# Coverage directory
+coverage
+
+# Dependency directories
+node_modules
 ```
 
 ## TypeScript configuration
@@ -85,25 +99,60 @@ coverage
 ```jsonc
 {
   "compilerOptions": {
-    "allowJs": true,
+    "allowJs": false,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "src",
-    "esModuleInterop": true,
+    "baseUrl": ".",
+    "esModuleInterop": false,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "jsx": "react",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "module": "esnext",
-    "moduleResolution": "node",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "noEmit": true,
-    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "hooks/*": ["src/hooks/*"],
+      "mocks/*": ["src/mocks/*"],
+      "models/*": ["src/models/*"],
+      "pages/*": ["src/pages/*"],
+      "services/*": ["src/services/*"],
+      "templates/*": ["src/templates/*"],
+      "types/*": ["src/types/*"],
+      "utils/*": ["src/utils/*"]
+    },
     "resolveJsonModule": true,
-    "skipLibCheck": true,
+    "skipLibCheck": false,
     "strict": true,
-    "target": "esnext"
+    "target": "ESNext"
   },
   "include": ["src"]
 }
+```
+
+`vite.config.ts` [[source](./react-typescript/vite.config.ts)]
+
+```typescript
+import { defineConfig } from "vite";
+import reactRefresh from "@vitejs/plugin-react-refresh";
+
+// https://vitejs.dev/config/
+const viteConfig = defineConfig({
+  plugins: [reactRefresh()],
+  resolve: {
+    alias: {
+      "hooks/": "/src/hooks/",
+      "mocks/": "/src/mocks/",
+      "models/": "/src/models/",
+      "pages/": "/src/pages/",
+      "services/": "/src/services/",
+      "templates/": "/src/templates/",
+      "types/": "/src/types/",
+      "utils/": "/src/utils/",
+    },
+  },
+});
+
+export default viteConfig;
 ```
 
 ### TypeScript configuration for pure TypeScript
@@ -112,6 +161,14 @@ Installation script
 
 ```shell
 npm i -D typescript jest @types/jest ts-jest
+```
+
+`package.json` scripts
+
+```json
+{
+  "tslint": "tsc"
+}
 ```
 
 `tsconfig.json` [[source](./typescript/tsconfig.json)]
@@ -124,7 +181,7 @@ npm i -D typescript jest @types/jest ts-jest
     "isolatedModules": true,
     "lib": ["ES2020"],
     "module": "ESNext",
-    "moduleResolution": "node",
+    "moduleResolution": "Node",
     "noEmit": true,
     "strict": true,
     "target": "ES2015",

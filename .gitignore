@@ -5,5 +5,5 @@ dist
 # Coverage directory
 coverage
 
-# GitHub Workflow
-.github
+# Dependency directories
+node_modules
