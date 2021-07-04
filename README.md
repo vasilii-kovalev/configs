@@ -111,7 +111,7 @@ coverage
 Installation script
 
 ```shell
-npm i -D -E typescript @types/node
+npm i -D typescript jest @types/jest ts-jest
 ```
 
 `tsconfig.json` [[source](./typescript/tsconfig.json)]
@@ -119,34 +119,56 @@ npm i -D -E typescript @types/node
 ```jsonc
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "declaration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-    "module": "commonjs",
-    "outDir": "./lib",
-    "rootDir": "src",
+    "lib": ["ES2020"],
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "noEmit": true,
     "strict": true,
-    "target": "es5"
-  },
-  "exclude": ["node_modules", "src/**/*.test.ts", "lib/*"]
+    "target": "ES2015",
+    "types": ["jest"]
+  }
 }
 ```
 
-`tsconfig.eslint.json` [[source](./typescript/tsconfig.eslint.json)]
-
-In order to lint tests, but don't compile them, it is necessary to have a
-separate `tsconfig.json` file [[learn more](https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/MONOREPO.md#one-root-tsconfigjson)].
+`tsconfig.esm.json` [[source](./typescript/tsconfig.esm.json)]
 
 ```jsonc
 {
-  "compilerOptions": {
-    "noEmit": true
-  },
-  "exclude": [],
   "extends": "./tsconfig.json",
-  "include": ["src"]
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./dist/types/",
+    "noEmit": false,
+    "outDir": "./dist/esm/"
+  },
+  "exclude": [
+    "**/*.test.ts",
+    /*
+      Fixes error TS5055 ("Cannot write file '.../dist/types/....d.ts' because it would overwrite input file").
+    */
+    "dist/*"
+  ]
+}
+```
+
+`tsconfig.cjs.json` [[source](./typescript/tsconfig.cjs.json)]
+
+```jsonc
+{
+  "extends": "./tsconfig.esm.json",
+  "compilerOptions": {
+    /*
+      The "ESM" config generates the type declarations, so no need to overwrite them.
+    */
+    "declaration": false,
+    "declarationDir": null,
+    "target": "es5",
+    "module": "commonjs",
+    "outDir": "dist/cjs"
+  }
 }
 ```
 
@@ -196,7 +218,9 @@ npm i -D eslint @typescript-eslint/parser eslint-plugin-import
 
 ```jsonc
 {
+  "parser": "@typescript-eslint/parser",
   "rules": {
+    "import/prefer-default-export": "off",
     "sort-imports": [
       "error",
       {
@@ -204,22 +228,7 @@ npm i -D eslint @typescript-eslint/parser eslint-plugin-import
         "ignoreDeclarationSort": true,
         "ignoreMemberSort": false
       }
-    ],
-    "import/prefer-default-export": "off"
-  },
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "project": "tsconfig.eslint.json"
-  },
-  "env": {
-    "jest": true
-  },
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "extensions": [".ts"]
-      }
-    }
+    ]
   }
 }
 ```

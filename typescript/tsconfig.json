@@ -1,15 +1,14 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "declaration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-    "module": "commonjs",
-    "outDir": "./lib",
-    "rootDir": "src",
+    "lib": ["ES2020"],
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "noEmit": true,
     "strict": true,
-    "target": "es5"
-  },
-  "exclude": ["node_modules", "src/**/*.test.ts", "lib/*"]
+    "target": "ES2015",
+    "types": ["jest"]
+  }
 }
