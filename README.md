@@ -147,7 +147,8 @@ npm i -D typescript jest @types/jest ts-jest
   "exclude": [
     "**/*.test.ts",
     /*
-      Fixes error TS5055 ("Cannot write file '.../dist/types/....d.ts' because it would overwrite input file").
+      Fixes error TS5055 ("Cannot write file '.../dist/types/....d.ts' because
+      it would overwrite input file").
     */
     "dist/*"
   ]
@@ -161,7 +162,8 @@ npm i -D typescript jest @types/jest ts-jest
   "extends": "./tsconfig.esm.json",
   "compilerOptions": {
     /*
-      The "ESM" config generates the type declarations, so no need to overwrite them.
+      The "ESM" config generates the type declarations, so no need to overwrite
+      them.
     */
     "declaration": false,
     "declarationDir": null,
