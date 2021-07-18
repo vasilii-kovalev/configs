@@ -4,7 +4,7 @@ The umbrella repository for all configs, used in web development.
 
 ## EditorConfig
 
-`.editorconfig` [[source](./.editorconfig)]
+`.editorconfig`
 
 ```editor-config
 root = true
@@ -26,16 +26,18 @@ Installation script
 yarn add -D -E prettier
 ```
 
-`package.json` scripts
+`package.json`
 
 ```json
 {
-  "prettier:check": "prettier --check .",
-  "prettier:fix": "prettier --write ."
+  "scripts" {
+    "prettier:check": "prettier --check .",
+    "prettier:fix": "prettier --write ."
+  }
 }
 ```
 
-`.prettierrc` [[source](./.prettierrc)]
+`.prettierrc`
 
 ```json
 {
@@ -54,7 +56,7 @@ yarn add -D -E prettier
 }
 ```
 
-`.prettierignore` [[source](./.prettierignore)]
+`.prettierignore`
 
 ```ignore
 # Artifacts
@@ -73,7 +75,7 @@ public/mockServiceWorker.js
 
 ## Git ignore
 
-`.gitignore` [[source](./.gitignore)]
+`.gitignore`
 
 ```ignore
 # Artifacts
@@ -91,22 +93,36 @@ node_modules
 
 ### React + TypeScript
 
-`package.json` scripts
+Creation of a Vite project
+
+```shell
+yarn create vite
+```
+
+Installation of additional packages
+
+```shell
+yarn add -D vite-tsconfig-paths
+```
+
+`package.json`
 
 ```json
 {
-  "tslint": "tsc --noEmit"
+  "scripts" {
+    "tslint": "tsc"
+  }
 }
 ```
 
-`tsconfig.json` [[source](./react-typescript/tsconfig.json)]
+`tsconfig.json`
 
 ```jsonc
 {
   "compilerOptions": {
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
+    "baseUrl": "src",
     "esModuleInterop": false,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
@@ -115,16 +131,6 @@ node_modules
     "module": "ESNext",
     "moduleResolution": "Node",
     "noEmit": true,
-    "paths": {
-      "hooks/*": ["src/hooks/*"],
-      "mocks/*": ["src/mocks/*"],
-      "models/*": ["src/models/*"],
-      "pages/*": ["src/pages/*"],
-      "services/*": ["src/services/*"],
-      "templates/*": ["src/templates/*"],
-      "types/*": ["src/types/*"],
-      "utils/*": ["src/utils/*"]
-    },
     "resolveJsonModule": true,
     "skipLibCheck": false,
     "strict": true,
@@ -134,107 +140,22 @@ node_modules
 }
 ```
 
-`vite.config.ts` [[source](./react-typescript/vite.config.ts)]
+`vite.config.ts`
 
 ```typescript
 import { defineConfig } from "vite";
 import reactRefresh from "@vitejs/plugin-react-refresh";
+import tsconfigPaths from "vite-tsconfig-paths";
 
 // https://vitejs.dev/config/
-const viteConfig = defineConfig({
-  plugins: [reactRefresh()],
-  resolve: {
-    alias: {
-      "hooks/": "/src/hooks/",
-      "mocks/": "/src/mocks/",
-      "models/": "/src/models/",
-      "pages/": "/src/pages/",
-      "services/": "/src/services/",
-      "templates/": "/src/templates/",
-      "types/": "/src/types/",
-      "utils/": "/src/utils/",
-    },
-  },
+export default defineConfig({
+  plugins: [reactRefresh(), tsconfigPaths()],
 });
-
-export default viteConfig;
 ```
 
 ### Pure TypeScript
 
-Installation script
-
-```shell
-yarn add -D typescript jest @types/jest ts-jest
-```
-
-`package.json` scripts
-
-```json
-{
-  "tslint": "tsc"
-}
-```
-
-`tsconfig.json` [[source](./typescript/tsconfig.json)]
-
-```jsonc
-{
-  "compilerOptions": {
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
-    "lib": ["ES2020"],
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "noEmit": true,
-    "strict": true,
-    "target": "ES2015",
-    "types": ["jest"]
-  }
-}
-```
-
-`tsconfig.esm.json` [[source](./typescript/tsconfig.esm.json)]
-
-```jsonc
-{
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "declaration": true,
-    "declarationDir": "./dist/types/",
-    "noEmit": false,
-    "outDir": "./dist/esm/"
-  },
-  "exclude": [
-    "**/*.test.ts",
-    /*
-      Fixes error TS5055 ("Cannot write file '.../dist/types/....d.ts' because
-      it would overwrite input file").
-    */
-    "dist/*"
-  ]
-}
-```
-
-`tsconfig.cjs.json` [[source](./typescript/tsconfig.cjs.json)]
-
-```jsonc
-{
-  "extends": "./tsconfig.esm.json",
-  "compilerOptions": {
-    /*
-      The "ESM" config generates the type declarations, so no need to overwrite
-      them.
-    */
-    "declaration": false,
-    "declarationDir": null,
-    "target": "es5",
-    "module": "commonjs",
-    "outDir": "dist/cjs"
-  }
-}
-```
+Check out [`hydrate-text` repository](https://github.com/vasilii-kovalev/hydrate-text).
 
 ## ESlint
 
@@ -244,16 +165,18 @@ yarn add -D typescript jest @types/jest ts-jest
 yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-plugin-prettier eslint-plugin-import eslint-plugin-react eslint-plugin-react-hooks
 ```
 
-`package.json` scripts
+`package.json`
 
 ```json
 {
-  "eslint:check": "eslint --ext .ts,.tsx src --color",
-  "eslint:fix": "yarn eslint:check --fix"
+  "scripts" {
+    "eslint:check": "eslint --ext .ts,.tsx src --color",
+    "eslint:fix": "yarn eslint:check --fix"
+  }
 }
 ```
 
-`.eslintrc` [[source](./react-typescript/.eslintrc)]
+`.eslintrc`
 
 ```jsonc
 {
@@ -265,6 +188,7 @@ yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser es
     "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
+  "root": true,
   "rules": {
     "import/prefer-default-export": "off",
     "react/prop-types": "off",
@@ -285,7 +209,7 @@ yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser es
 }
 ```
 
-`.eslintignore` [[source](./react-typescript/.eslintignore)]
+`.eslintignore`
 
 ```ignore
 # MSW mocks
@@ -294,68 +218,37 @@ src/mocks
 
 ### Pure TypeScript
 
-Installation script
-
-```shell
-yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-plugin-prettier eslint-plugin-import
-```
-
-`package.json` scripts
-
-```json
-{
-  "eslint:check": "eslint --ext .ts src --color",
-  "eslint:fix": "yarn eslint:check --fix"
-}
-```
-
-`.eslintrc` [[source](./typescript/.eslintrc)]
-
-```jsonc
-{
-  "extends": [
-    "plugin:@typescript-eslint/recommended",
-    "prettier",
-    "plugin:prettier/recommended"
-  ],
-  "parser": "@typescript-eslint/parser",
-  "rules": {
-    "import/prefer-default-export": "off",
-    "sort-imports": [
-      "error",
-      {
-        "ignoreCase": false,
-        "ignoreDeclarationSort": true,
-        "ignoreMemberSort": false
-      }
-    ]
-  }
-}
-```
+Check out [`hydrate-text` repository](https://github.com/vasilii-kovalev/hydrate-text).
 
 ## Stylelint
 
 Installation script
 
 ```shell
-yarn add -D stylelint stylelint-config-css-modules stylelint-config-standard stylelint-order stylelint-scss
+yarn add -D stylelint stylelint-config-standard stylelint-config-prettier stylelint-config-css-modules stylelint-order stylelint-scss
 ```
 
-`package.json` scripts
+`package.json`
 
 ```json
 {
-  "stylelint:check": "stylelint src/**/*.scss --color",
-  "stylelint:fix": "yarn stylelint:check --fix"
+  "scripts" {
+    "stylelint:check": "stylelint src/**/*.scss --color",
+    "stylelint:fix": "yarn stylelint:check --fix"
+  }
 }
 ```
 
-`.stylelintrc` [[source](./.stylelintrc)]
+`.stylelintrc`
 
 ```jsonc
 {
   "plugins": ["stylelint-scss", "stylelint-order"],
-  "extends": ["stylelint-config-standard", "stylelint-config-css-modules"],
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-css-modules",
+    "stylelint-config-prettier"
+  ],
   "rules": {
     "at-rule-no-unknown": null,
     "order/properties-alphabetical-order": true,
@@ -372,9 +265,11 @@ Extensions
 - [browserslist](https://marketplace.visualstudio.com/items?itemName=webben.browserslist)
 - [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [filesize](https://marketplace.visualstudio.com/items?itemName=mkxml.vscode-filesize)
 - [GitLens — Git supercharged](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
 - [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
 - [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
+- [Nunjucks](https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks)
 - [One Monokai Theme](https://marketplace.visualstudio.com/items?itemName=azemoh.one-monokai)
 - [Path Autocomplete](https://marketplace.visualstudio.com/items?itemName=ionutvmi.path-autocomplete)
 - [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
@@ -383,38 +278,10 @@ Extensions
 
 _Note: run `code --list-extensions` in terminal to get extensions list._
 
-Config [[source](./vs-code-config.json)]
+Config
 
 ```jsonc
 {
-  "[browserslist]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-  "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
   "cSpell.enableFiletypes": ["diff", "jsx-tags", "xml"],
   "cSpell.language": "en,ru,ru-RU,en-GB,en-US",
   "diffEditor.ignoreTrimWhitespace": false,
@@ -422,11 +289,13 @@ Config [[source](./vs-code-config.json)]
     "source.fixAll.eslint": true,
     "source.fixAll.stylelint": true
   },
-  "editor.formatOnSave": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
   "editor.linkedEditing": true,
   "editor.renderWhitespace": "all",
   "editor.rulers": [80],
   "editor.tabSize": 2,
+  "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?_",
   "explorer.compactFolders": false,
   "files.associations": {
     ".eslintignore": "ignore",

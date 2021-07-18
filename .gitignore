@@ -1,9 +1,0 @@
-# Artifacts
-build
-dist
-
-# Coverage directory
-coverage
-
-# Dependency directories
-node_modules
