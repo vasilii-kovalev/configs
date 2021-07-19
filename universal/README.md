@@ -55,7 +55,7 @@ dist
 
 ```json
 {
-  "scripts" {
+  "scripts": {
     "prettier:check": "prettier --check .",
     "prettier:fix": "prettier --write ."
   }

@@ -64,7 +64,7 @@ export default defineConfig({
 
 ```json
 {
-  "scripts" {
+  "scripts": {
     "tslint": "tsc"
   }
 }
@@ -122,7 +122,7 @@ import "@testing-library/jest-dom";
 
 ```json
 {
-  "scripts" {
+  "scripts": {
     "test": "jest --watchAll --detectOpenHandles",
     "test:coverage": "jest --coverage"
   }
@@ -254,7 +254,7 @@ mockServiceWorker.js
 
 ```json
 {
-  "scripts" {
+  "scripts": {
     "prettier:check": "prettier --check .",
     "prettier:fix": "prettier --write ."
   }
@@ -338,7 +338,7 @@ yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser es
 
 ```json
 {
-  "scripts" {
+  "scripts": {
     "eslint:check": "eslint --ext .ts,.tsx src --color",
     "eslint:fix": "yarn eslint:check --fix"
   }
@@ -375,7 +375,7 @@ yarn add -D stylelint stylelint-config-standard stylelint-config-prettier stylel
 
 ```json
 {
-  "scripts" {
+  "scripts": {
     "stylelint:check": "stylelint src/**/*.scss --color",
     "stylelint:fix": "yarn stylelint:check --fix"
   }
