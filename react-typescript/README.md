@@ -23,14 +23,16 @@ yarn add -D vite-tsconfig-paths
 `vite.config.ts`
 
 ```typescript
-import { defineConfig } from "vite";
 import reactRefresh from "@vitejs/plugin-react-refresh";
+import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 // https://vitejs.dev/config/
-export default defineConfig({
+const config = defineConfig({
   plugins: [reactRefresh(), tsconfigPaths()],
 });
+
+export default config;
 ```
 
 ## Typescript
@@ -109,7 +111,9 @@ yarn add -D jest jest-watch-typeahead @testing-library/dom @testing-library/jest
 `src/__mocks__/file-mock.ts`
 
 ```typescript
-export default "test-file-stub";
+const mock = "test-file-stub";
+
+export default mock;
 ```
 
 `src/setup-tests.ts`
