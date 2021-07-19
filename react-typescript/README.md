@@ -276,6 +276,7 @@ yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser es
 ```jsonc
 {
   "extends": [
+    "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended",
