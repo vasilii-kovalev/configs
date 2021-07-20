@@ -72,12 +72,18 @@ export default config;
 }
 ```
 
-## SCSS
+## Styles
 
-Installation script
+Installation of SasS
 
 ```shell
 yarn add -D sass
+```
+
+Installation of additional packages
+
+```shell
+yarn add classnames
 ```
 
 ## Tests
@@ -196,6 +202,86 @@ Installation script
 
 ```shell
 npx ynpx sb init
+```
+
+Installation of additional packages
+
+```shell
+yarn add -D sass-loader
+```
+
+**Note**: `css-loader` and `style-loader` are Storybook dependencies, so it is not necessary to install them separately.
+
+`.storybook/main.js`
+
+```javascript
+const path = require("path");
+
+const config = {
+  addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
+  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(ts|tsx)"],
+  webpackFinal: (config) => {
+    // https://github.com/storybookjs/storybook/issues/2704#issuecomment-357407742
+    config.resolve.modules = [
+      "node_modules",
+      path.resolve(__dirname, "../src"),
+    ];
+
+    // https://storybook.js.org/docs/react/configure/webpack#extending-storybooks-webpack-config
+    config.module.rules.push({
+      test: /\.scss$/,
+      use: [
+        { loader: "style-loader" },
+        {
+          loader: "css-loader",
+          options: {
+            /*
+              `modules: true` allows to use EITHER modules or plain styles.
+              `modules: { auto: true }` allows to use both.
+
+              More info: https://webpack.js.org/loaders/css-loader/#modules
+            */
+            modules: {
+              auto: true,
+            },
+          },
+        },
+        /*
+          Version of `sass-loader` should match Storybook's webpack version.
+          Storybook' webpack version is 4, and the last version of `sass-loader`
+          that supports it is "^10.1.1".
+
+          Related issue: https://github.com/webpack-contrib/sass-loader/issues/924
+        */
+        { loader: "sass-loader" },
+      ],
+      include: path.resolve(__dirname, "../"),
+    });
+
+    return config;
+  },
+};
+
+module.exports = config;
+```
+
+`.storybook/preview.js`
+
+```javascript
+// Import the same styles as in `main.tsx`.
+import "../src/styles/index.scss";
+
+const parameters = {
+  actions: { argTypesRegex: "^on[A-Z].*" },
+  controls: {
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/,
+    },
+  },
+};
+
+export { parameters };
 ```
 
 ## EditorConfig
