@@ -354,7 +354,7 @@ mockServiceWorker.js
 ## ESlint
 
 ```shell
-yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-plugin-prettier eslint-plugin-import eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jest eslint-plugin-testing-library
+yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-plugin-prettier eslint-plugin-import eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jsx-a11y eslint-plugin-jest eslint-plugin-testing-library
 ```
 
 `.eslintrc`
@@ -371,6 +371,7 @@ yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser es
     "plugin:jest/recommended",
     "plugin:jest/style",
     "plugin:testing-library/react",
+    "plugin:jsx-a11y/recommended",
     "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
