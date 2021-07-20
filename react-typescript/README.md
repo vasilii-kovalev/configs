@@ -354,7 +354,7 @@ mockServiceWorker.js
 ## ESlint
 
 ```shell
-yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-plugin-prettier eslint-plugin-import eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jest
+yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-plugin-prettier eslint-plugin-import eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jest eslint-plugin-testing-library
 ```
 
 `.eslintrc`
@@ -370,6 +370,7 @@ yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser es
     "plugin:import/typescript",
     "plugin:jest/recommended",
     "plugin:jest/style",
+    "plugin:testing-library/react",
     "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
@@ -449,6 +450,7 @@ yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser es
     "@typescript-eslint/no-unused-expressions": "error",
     "@typescript-eslint/prefer-reduce-type-parameter": "error",
     "@typescript-eslint/prefer-string-starts-ends-with": "error",
+    "@typescript-eslint/require-await": "error",
     "@typescript-eslint/return-await": "error",
     "@typescript-eslint/strict-boolean-expressions": "error",
     "@typescript-eslint/unified-signatures": "error",
@@ -495,7 +497,19 @@ yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser es
     "react/jsx-no-useless-fragment": "error",
     "react/prop-types": "off",
     "react/self-closing-comp": "error",
-    "react/void-dom-elements-no-children": "error"
+    "react/void-dom-elements-no-children": "error",
+
+    "testing-library/no-await-sync-events": "error",
+    "testing-library/no-manual-cleanup": "error",
+    "testing-library/no-render-in-setup": "error",
+    "testing-library/no-unnecessary-act": "error",
+    "testing-library/no-wait-for-multiple-assertions": "error",
+    "testing-library/no-wait-for-side-effects": "error",
+    "testing-library/no-wait-for-snapshot": "error",
+    "testing-library/prefer-explicit-assert": "error",
+    "testing-library/prefer-presence-queries": "error",
+    "testing-library/prefer-query-by-disappearance": "error",
+    "testing-library/prefer-user-event": "error"
   },
   "settings": {
     "import/resolver": {
@@ -505,7 +519,8 @@ yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser es
     },
     "react": {
       "version": "detect"
-    }
+    },
+    "testing-library/utils-module": "test-utils"
   }
 }
 ```
