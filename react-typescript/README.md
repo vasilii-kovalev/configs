@@ -370,12 +370,50 @@ yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser es
     "plugin:import/typescript",
     "plugin:jest/recommended",
     "plugin:jest/style",
-    "prettier",
     "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "tsconfig.json"
+  },
   "root": true,
   "rules": {
+    "consistent-return": "error",
+    "default-case-last": "error",
+    "default-case": "error",
+    "eqeqeq": "error",
+    "id-denylist": ["error", "req", "res", "err", "e"],
+    "line-comment-position": ["error", "above"],
+    "multiline-comment-style": ["error", "bare-block"],
+    "no-alert": "error",
+    "no-console": ["error", { "allow": ["error"] }],
+    "no-implicit-coercion": "error",
+    "no-new-wrappers": "error",
+    "no-param-reassign": "error",
+    "no-plusplus": "error",
+    "no-restricted-imports": [
+      "error",
+      {
+        "name": "lodash",
+        "message": "Please use `import <package> from \"lodash/<package>\";` instead."
+      }
+    ],
+    "no-return-assign": "error",
+    "no-self-compare": "error",
+    "no-unneeded-ternary": "error",
+    "no-useless-computed-key": "error",
+    "no-useless-concat": "error",
+    "no-useless-rename": "error",
+    "no-useless-return": "error",
+    "object-shorthand": "error",
+    "one-var": ["error", "never"],
+    "operator-assignment": ["error", "always"],
+    "prefer-arrow-callback": "error",
+    "prefer-destructuring": "error",
+    "prefer-named-capture-group": "error",
+    "prefer-promise-reject-errors": "error",
+    "prefer-template": "error",
+    "radix": "error",
     "sort-imports": [
       "error",
       {
@@ -384,6 +422,37 @@ yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser es
         "ignoreMemberSort": false
       }
     ],
+    "yoda": ["error", "never"],
+
+    "@typescript-eslint/array-type": ["error", { "default": "array-simple" }],
+    "@typescript-eslint/consistent-indexed-object-style": "error",
+    "@typescript-eslint/consistent-type-assertions": "error",
+    "@typescript-eslint/consistent-type-definitions": "error",
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      { "prefer": "no-type-imports" }
+    ],
+    "@typescript-eslint/explicit-function-return-type": [
+      "error",
+      { "allowExpressions": true }
+    ],
+    "@typescript-eslint/default-param-last": "error",
+    "@typescript-eslint/dot-notation": "error",
+    "@typescript-eslint/method-signature-style": "error",
+    "@typescript-eslint/no-confusing-non-null-assertion": "error",
+    "@typescript-eslint/no-implicit-any-catch": "error",
+    "@typescript-eslint/no-invalid-void-type": "error",
+    "@typescript-eslint/no-magic-numbers": "error",
+    "@typescript-eslint/no-unnecessary-condition": "error",
+    "@typescript-eslint/no-unnecessary-type-arguments": "error",
+    "@typescript-eslint/no-unnecessary-type-constraint": "error",
+    "@typescript-eslint/no-unused-expressions": "error",
+    "@typescript-eslint/prefer-reduce-type-parameter": "error",
+    "@typescript-eslint/prefer-string-starts-ends-with": "error",
+    "@typescript-eslint/return-await": "error",
+    "@typescript-eslint/strict-boolean-expressions": "error",
+    "@typescript-eslint/unified-signatures": "error",
+
     "import/exports-last": "error",
     "import/first": "error",
     "import/group-exports": "error",
@@ -410,7 +479,23 @@ yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser es
         "warnOnUnassignedImports": true
       }
     ],
-    "react/prop-types": "off"
+
+    "jest/consistent-test-it": ["error", { "withinDescribe": "test" }],
+    "jest/no-duplicate-hooks": "error",
+    "jest/prefer-hooks-on-top": "error",
+    "jest/prefer-spy-on": "error",
+    "jest/prefer-strict-equal": "error",
+    "jest/require-to-throw-message": "error",
+
+    "react/button-has-type": "error",
+    "react/jsx-boolean-value": ["error", "always"],
+    "react/jsx-curly-brace-presence": ["error", "never"],
+    "react/jsx-fragments": ["error", "syntax"],
+    "react/jsx-no-constructed-context-values": "error",
+    "react/jsx-no-useless-fragment": "error",
+    "react/prop-types": "off",
+    "react/self-closing-comp": "error",
+    "react/void-dom-elements-no-children": "error"
   },
   "settings": {
     "import/resolver": {
