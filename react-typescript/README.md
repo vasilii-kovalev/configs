@@ -96,7 +96,7 @@ yarn add classnames
 Installation script
 
 ```shell
-yarn add -D jest jest-watch-typeahead @testing-library/dom @testing-library/jest-dom @testing-library/react @testing-library/user-event @swc/jest
+yarn add -D jest jest-watch-typeahead @testing-library/dom @testing-library/jest-dom @testing-library/react @testing-library/user-event @testing-library/react-hooks @swc/jest
 ```
 
 `jest.config.json`
