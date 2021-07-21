@@ -673,22 +673,121 @@ Installation script
 yarn add -D stylelint stylelint-config-standard stylelint-config-prettier stylelint-config-css-modules stylelint-order stylelint-scss
 ```
 
-`.stylelintrc`
+`.stylelintrc.js`
 
-```jsonc
-{
-  "plugins": ["stylelint-scss", "stylelint-order"],
-  "extends": [
+```javascript
+"use strict";
+
+module.exports = {
+  extends: [
+    // https://github.com/stylelint/stylelint-config-recommended/blob/master/index.js
+    // https://github.com/stylelint/stylelint-config-standard/blob/master/index.js
     "stylelint-config-standard",
+    // https://github.com/pascalduez/stylelint-config-css-modules/blob/master/index.js
     "stylelint-config-css-modules",
-    "stylelint-config-prettier"
+    // https://github.com/prettier/stylelint-config-prettier/blob/master/src/index.js
+    "stylelint-config-prettier",
   ],
-  "rules": {
+  // Prevent `stylelint` (Visual Studio Code extension) from checking JSX syntax
+  ignoreFiles: ["**/*.tsx"],
+  plugins: [
+    // https://github.com/kristerkari/stylelint-scss#list-of-rules
+    "stylelint-scss",
+    // https://github.com/hudochenkov/stylelint-order#rules
+    "stylelint-order",
+  ],
+  rules: {
+    // https://stylelint.io/user-guide/rules/list/alpha-value-notation/
+    "alpha-value-notation": "number",
+    // Handled by scss/at-rule-no-unknown
+    // https://stylelint.io/user-guide/rules/list/at-rule-no-unknown/
     "at-rule-no-unknown": null,
+    // https://stylelint.io/user-guide/rules/list/at-rule-no-vendor-prefix/
+    "at-rule-no-vendor-prefix": true,
+    // https://stylelint.io/user-guide/rules/list/color-function-notation/
+    "color-function-notation": "modern",
+    // https://stylelint.io/user-guide/rules/list/color-named/
+    "color-named": "always-where-possible",
+    // Handled by scss/comment-no-empty
+    // https://stylelint.io/user-guide/rules/list/comment-no-empty/
+    "comment-no-empty": null,
+    // https://stylelint.io/user-guide/rules/list/declaration-block-no-duplicate-properties/
+    "declaration-block-no-duplicate-properties": true,
+    // https://stylelint.io/user-guide/rules/list/declaration-block-no-redundant-longhand-properties/
+    "declaration-block-no-redundant-longhand-properties": true,
+    // https://stylelint.io/user-guide/rules/list/font-weight-notation/
+    "font-weight-notation": "numeric",
+    // https://stylelint.io/user-guide/rules/list/function-url-no-scheme-relative/
+    "function-url-no-scheme-relative": true,
+    // https://stylelint.io/user-guide/rules/list/hue-degree-notation/
+    "hue-degree-notation": "angle",
+    // https://stylelint.io/user-guide/rules/list/media-feature-name-no-vendor-prefix/
+    "media-feature-name-no-vendor-prefix": true,
+    // https://stylelint.io/user-guide/rules/list/no-unknown-animations/
+    "no-unknown-animations": true,
+    // https://stylelint.io/user-guide/rules/list/property-no-vendor-prefix/
+    "property-no-vendor-prefix": true,
+    // https://stylelint.io/user-guide/rules/list/selector-no-qualifying-type/
+    "selector-no-qualifying-type": true,
+    // https://stylelint.io/user-guide/rules/list/selector-no-vendor-prefix/
+    "selector-no-vendor-prefix": true,
+    // https://stylelint.io/user-guide/rules/list/shorthand-property-no-redundant-values/
+    "shorthand-property-no-redundant-values": true,
+    // https://stylelint.io/user-guide/rules/list/value-no-vendor-prefix/
+    "value-no-vendor-prefix": true,
+
+    // https://github.com/hudochenkov/stylelint-order/blob/master/rules/order/README.md
+    "order/order": ["dollar-variables", "declarations", "at-rules", "rules"],
+    // https://github.com/hudochenkov/stylelint-order/blob/master/rules/properties-alphabetical-order/README.md
     "order/properties-alphabetical-order": true,
-    "scss/at-rule-no-unknown": true
-  }
-}
+
+    // https://github.com/kristerkari/stylelint-scss/blob/master/src/rules/at-each-key-value-single-line/README.md
+    "scss/at-each-key-value-single-line": true,
+    // https://github.com/kristerkari/stylelint-scss/blob/master/src/rules/at-extend-no-missing-placeholder/README.md
+    "scss/at-extend-no-missing-placeholder": true,
+    // https://github.com/kristerkari/stylelint-scss/blob/master/src/rules/at-function-named-arguments/README.md
+    "scss/at-function-named-arguments": "always",
+    // https://github.com/kristerkari/stylelint-scss/blob/master/src/rules/at-if-no-null/README.md
+    "scss/at-if-no-null": true,
+    // https://github.com/kristerkari/stylelint-scss/blob/master/src/rules/at-import-no-partial-leading-underscore/README.md
+    "scss/at-import-no-partial-leading-underscore": true,
+    // https://github.com/kristerkari/stylelint-scss/blob/master/src/rules/at-import-partial-extension/README.md
+    "scss/at-import-partial-extension": "always",
+    // https://github.com/kristerkari/stylelint-scss/blob/master/src/rules/at-mixin-argumentless-call-parentheses/README.md
+    "scss/at-mixin-argumentless-call-parentheses": "always",
+    // https://github.com/kristerkari/stylelint-scss/blob/master/src/rules/at-mixin-named-arguments/README.md
+    "scss/at-mixin-named-arguments": "always",
+    // https://github.com/kristerkari/stylelint-scss/blob/master/src/rules/at-rule-no-unknown/README.md
+    "scss/at-rule-no-unknown": true,
+    // https://github.com/kristerkari/stylelint-scss/blob/master/src/rules/comment-no-empty/README.md
+    "scss/comment-no-empty": true,
+    // https://github.com/kristerkari/stylelint-scss/blob/master/src/rules/declaration-nested-properties/README.md
+    "scss/declaration-nested-properties": "never",
+    // https://github.com/kristerkari/stylelint-scss/blob/master/src/rules/dimension-no-non-numeric-values/README.md
+    "scss/dimension-no-non-numeric-values": true,
+    // https://github.com/kristerkari/stylelint-scss/blob/master/src/rules/dollar-variable-default/README.md
+    "scss/dollar-variable-default": [true, { ignore: "local" }],
+    // https://github.com/kristerkari/stylelint-scss/blob/master/src/rules/dollar-variable-first-in-block/README.md
+    "scss/dollar-variable-first-in-block": [
+      true,
+      { ignore: ["comments", "imports"] },
+    ],
+    // https://github.com/kristerkari/stylelint-scss/blob/master/src/rules/dollar-variable-no-missing-interpolation/README.md
+    "scss/dollar-variable-no-missing-interpolation": true,
+    // https://github.com/kristerkari/stylelint-scss/blob/master/src/rules/double-slash-comment-inline/README.md
+    "scss/double-slash-comment-inline": "never",
+    // https://github.com/kristerkari/stylelint-scss/blob/master/src/rules/function-color-relative/README.md
+    "scss/function-color-relative": true,
+    // https://github.com/kristerkari/stylelint-scss/blob/master/src/rules/no-duplicate-dollar-variables/README.md
+    "scss/no-duplicate-dollar-variables": true,
+    // https://github.com/kristerkari/stylelint-scss/blob/master/src/rules/no-duplicate-mixins/README.md
+    "scss/no-duplicate-mixins": true,
+    // https://github.com/kristerkari/stylelint-scss/blob/master/src/rules/no-global-function-names/README.md
+    "scss/no-global-function-names": true,
+    // https://github.com/kristerkari/stylelint-scss/blob/master/src/rules/selector-no-redundant-nesting-selector/README.md
+    "scss/selector-no-redundant-nesting-selector": true,
+  },
+};
 ```
 
 `package.json`
