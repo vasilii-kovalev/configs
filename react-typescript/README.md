@@ -5,19 +5,28 @@
 Creation of a Vite project
 
 ```shell
+# Yarn
 yarn create vite app --template react-ts
+# npm
+npm init vite app -- --template react-ts
 ```
 
 Installation of the dependencies
 
 ```shell
+# Yarn
 yarn install
+# npm
+npm i
 ```
 
 Installation of additional packages
 
 ```shell
+# Yarn
 yarn add -D vite-tsconfig-paths
+# npm
+npm i -D vite-tsconfig-paths
 ```
 
 `vite.config.ts`
@@ -86,13 +95,19 @@ export default config;
 Installation of SasS
 
 ```shell
+# Yarn
 yarn add -D sass
+# npm
+npm i -D sass
 ```
 
 Installation of additional packages
 
 ```shell
+# Yarn
 yarn add classnames
+# npm
+npm i classnames
 ```
 
 ## MSW
@@ -100,7 +115,10 @@ yarn add classnames
 Installation script
 
 ```shell
+# Yarn
 yarn add -D msw
+# npm
+npm i -D msw
 ```
 
 `src/mocks/handlers.ts`
@@ -116,7 +134,10 @@ export { handlers };
 Creation of the service worker
 
 ```shell
-yarn msw init ./
+# Yarn
+yarn msw init ./ --save
+# npm
+npx msw init ./ --save
 ```
 
 `src/mocks/browser.ts`
@@ -142,28 +163,29 @@ if (process.env.NODE_ENV === "development") {
 }
 ```
 
-`package.json`
-
-```json
-{
-  "msw": {
-    "workerDirectory": ""
-  }
-}
-```
-
 ## Tests
 
 Installation script
 
 ```shell
-yarn add -D jest jest-watch-typeahead @testing-library/dom @testing-library/jest-dom @testing-library/react @testing-library/user-event @testing-library/react-hooks ts-jest
+# Yarn
+yarn add -D jest jest-watch-typeahead @testing-library/dom @testing-library/jest-dom @testing-library/react @testing-library/user-event @testing-library/react-hooks ts-jest identity-obj-proxy
+# npm
+npm i -D jest jest-watch-typeahead @testing-library/dom @testing-library/jest-dom @testing-library/react @testing-library/user-event @testing-library/react-hooks ts-jest identity-obj-proxy
 ```
 
 `jest.config.json`
 
 ```json
 {
+  "collectCoverageFrom": [
+    "**/*.{ts,tsx}",
+    "!**/*.stories.tsx",
+    "!*.{ts,tsx}",
+    "!src/*.{ts,tsx}",
+    "!src/__mocks__/*",
+    "!src/mocks/*"
+  ],
   "moduleDirectories": ["node_modules", "src"],
   "moduleNameMapper": {
     "\\.scss$": "identity-obj-proxy",
@@ -241,13 +263,19 @@ export { renderHook } from "@testing-library/react-hooks";
 Installation script
 
 ```shell
+# Yarn
 npx ynpx sb init
+# npm
+npx sb init
 ```
 
 Installation of additional packages
 
 ```shell
-yarn add -D sass-loader msw-storybook-addon
+# Yarn
+yarn add -D sass-loader@10.1.1 msw-storybook-addon
+# npm
+npm i -D sass-loader@10.1.1 msw-storybook-addon
 ```
 
 **Note**: `css-loader` and `style-loader` are Storybook dependencies, so it is not necessary to install them separately.
@@ -361,7 +389,10 @@ trim_trailing_whitespace = true
 Installation script
 
 ```shell
+# Yarn
 yarn add -D -E prettier
+# npm
+npm i -D -E prettier
 ```
 
 `.prettierrc`
@@ -401,16 +432,19 @@ mockServiceWorker.js
 ```json
 {
   "scripts": {
-    "prettier:check": "prettier --check .",
-    "prettier:fix": "prettier --write ."
+    "prettier:check": "prettier . --check",
+    "prettier:fix": "prettier . --write"
   }
 }
 ```
 
-## ESlint
+## ESLint
 
 ```shell
-yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-plugin-prettier eslint-plugin-import eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jsx-a11y eslint-plugin-jest eslint-plugin-testing-library
+# Yarn
+yarn add -D -E eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-plugin-prettier eslint-plugin-import eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jsx-a11y eslint-plugin-jest eslint-plugin-testing-library
+# npm
+npm i -D -E eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-plugin-prettier eslint-plugin-import eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jsx-a11y eslint-plugin-jest eslint-plugin-testing-library
 ```
 
 `.eslintrc`
@@ -477,9 +511,6 @@ yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser es
     "no-console": ["error", { "allow": ["error"] }],
     // https://eslint.org/docs/rules/no-implicit-coercion
     "no-implicit-coercion": "error",
-    // Handled by @typescript-eslint/no-magic-numbers
-    // https://eslint.org/docs/rules/no-magic-numbers
-    "no-magic-numbers": "off",
     // https://eslint.org/docs/rules/no-new-wrappers
     "no-new-wrappers": "error",
     // https://eslint.org/docs/rules/no-param-reassign
@@ -574,8 +605,6 @@ yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser es
     "@typescript-eslint/no-implicit-any-catch": "error",
     // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-invalid-void-type.md
     "@typescript-eslint/no-invalid-void-type": "error",
-    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-magic-numbers.md
-    "@typescript-eslint/no-magic-numbers": "error",
     // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unnecessary-condition.md
     "@typescript-eslint/no-unnecessary-condition": "error",
     // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unnecessary-type-arguments.md
@@ -710,8 +739,8 @@ yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser es
 ```json
 {
   "scripts": {
-    "eslint:check": "eslint --ext .ts,.tsx src --color",
-    "eslint:fix": "yarn eslint:check --fix"
+    "eslint:check": "eslint src",
+    "eslint:fix": "eslint src --fix"
   }
 }
 ```
@@ -721,7 +750,10 @@ yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser es
 Installation script
 
 ```shell
-yarn add -D stylelint stylelint-config-standard stylelint-config-prettier stylelint-config-css-modules stylelint-order stylelint-scss
+# Yarn
+yarn add -D -E stylelint stylelint-config-standard stylelint-config-prettier stylelint-config-css-modules stylelint-order stylelint-scss
+# npm
+npm i -D -E stylelint stylelint-config-standard stylelint-config-prettier stylelint-config-css-modules stylelint-order stylelint-scss
 ```
 
 `.stylelintrc.js`
@@ -846,8 +878,8 @@ module.exports = {
 ```json
 {
   "scripts": {
-    "stylelint:check": "stylelint src/**/*.scss --color",
-    "stylelint:fix": "yarn stylelint:check --fix"
+    "stylelint:check": "stylelint src",
+    "stylelint:fix": "stylelint src --fix"
   }
 }
 ```
@@ -912,7 +944,6 @@ node_modules
   "editor.renderWhitespace": "all",
   "editor.rulers": [80],
   "editor.tabSize": 2,
-  "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?_",
   "explorer.compactFolders": false,
   "files.associations": {
     ".eslintignore": "ignore",

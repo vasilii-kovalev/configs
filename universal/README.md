@@ -56,8 +56,8 @@ dist
 ```json
 {
   "scripts": {
-    "prettier:check": "prettier --check .",
-    "prettier:fix": "prettier --write ."
+    "prettier:check": "prettier . --check",
+    "prettier:fix": "prettier . --write"
   }
 }
 ```
@@ -100,7 +100,6 @@ dist
   "editor.renderWhitespace": "all",
   "editor.rulers": [80],
   "editor.tabSize": 2,
-  "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?_",
   "explorer.compactFolders": false,
   "files.associations": {
     ".eslintignore": "ignore",
