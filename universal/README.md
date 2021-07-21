@@ -101,12 +101,6 @@ dist
   "editor.rulers": [80],
   "editor.tabSize": 2,
   "explorer.compactFolders": false,
-  "files.associations": {
-    ".eslintignore": "ignore",
-    ".huskyrc": "json",
-    ".lintstagedrc": "json",
-    ".stylelintrc": "json"
-  },
   "files.autoSave": "off",
   "files.insertFinalNewline": true,
   "git.allowNoVerifyCommit": true,

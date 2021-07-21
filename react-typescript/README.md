@@ -92,7 +92,7 @@ export default config;
 
 ## Styles
 
-Installation of SasS
+Installation of Sass
 
 ```shell
 # Yarn
@@ -135,9 +135,9 @@ Creation of the service worker
 
 ```shell
 # Yarn
-yarn msw init ./ --save
+yarn msw init . --save
 # npm
-npx msw init ./ --save
+npx msw init . --save
 ```
 
 `src/mocks/browser.ts`
@@ -363,7 +363,7 @@ export { parameters };
 ```json
 {
   "scripts": {
-    "storybook": "start-storybook -s ./ -p 6006"
+    "storybook": "start-storybook -s . -p 6006"
   }
 }
 ```
@@ -945,12 +945,6 @@ node_modules
   "editor.rulers": [80],
   "editor.tabSize": 2,
   "explorer.compactFolders": false,
-  "files.associations": {
-    ".eslintignore": "ignore",
-    ".huskyrc": "json",
-    ".lintstagedrc": "json",
-    ".stylelintrc": "json"
-  },
   "files.autoSave": "off",
   "files.insertFinalNewline": true,
   "git.allowNoVerifyCommit": true,
