@@ -45,6 +45,10 @@ export default config;
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
     "baseUrl": "src",
+    /*
+      Default value `false` was changed because:
+      - It breaks `identity-obj-proxy` work
+    */
     "esModuleInterop": false,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
@@ -91,59 +95,6 @@ Installation of additional packages
 yarn add classnames
 ```
 
-## Tests
-
-Installation script
-
-```shell
-yarn add -D jest jest-watch-typeahead @testing-library/dom @testing-library/jest-dom @testing-library/react @testing-library/user-event @testing-library/react-hooks @swc/jest
-```
-
-`jest.config.json`
-
-```json
-{
-  "moduleNameMapper": {
-    "\\.scss$": "identity-obj-proxy",
-    "\\.(svg|jpg|png)$": "<rootDir>/src/__mocks__/file-mock.ts"
-  },
-  "setupFilesAfterEnv": ["<rootDir>/src/setup-tests.ts"],
-  "testEnvironment": "jsdom",
-  "transform": {
-    "^.+\\.tsx?$": "@swc/jest"
-  },
-  "watchPlugins": [
-    "jest-watch-typeahead/filename",
-    "jest-watch-typeahead/testname"
-  ]
-}
-```
-
-`src/__mocks__/file-mock.ts`
-
-```typescript
-const mock = "test-file-stub";
-
-export default mock;
-```
-
-`src/setup-tests.ts`
-
-```typescript
-import "@testing-library/jest-dom";
-```
-
-`package.json`
-
-```json
-{
-  "scripts": {
-    "test": "jest --watchAll --detectOpenHandles",
-    "test:coverage": "jest --coverage"
-  }
-}
-```
-
 ## MSW
 
 Installation script
@@ -155,9 +106,9 @@ yarn add -D msw
 `src/mocks/handlers.ts`
 
 ```typescript
-import { MockedRequest, RestHandler } from "msw";
+import { RestHandler } from "msw";
 
-const handlers: RestHandler<MockedRequest>[] = [];
+const handlers: RestHandler[] = [];
 
 export { handlers };
 ```
@@ -201,6 +152,90 @@ if (process.env.NODE_ENV === "development") {
 }
 ```
 
+## Tests
+
+Installation script
+
+```shell
+yarn add -D jest jest-watch-typeahead @testing-library/dom @testing-library/jest-dom @testing-library/react @testing-library/user-event @testing-library/react-hooks ts-jest
+```
+
+`jest.config.json`
+
+```json
+{
+  "moduleDirectories": ["node_modules", "src"],
+  "moduleNameMapper": {
+    "\\.scss$": "identity-obj-proxy",
+    "\\.svg$": "<rootDir>/src/__mocks__/file-mock.ts"
+  },
+  "setupFilesAfterEnv": ["<rootDir>/src/setup-tests.ts"],
+  "testEnvironment": "jsdom",
+  "transform": {
+    "^.+\\.tsx?$": "ts-jest"
+  },
+  "watchPlugins": [
+    "jest-watch-typeahead/filename",
+    "jest-watch-typeahead/testname"
+  ]
+}
+```
+
+`src/__mocks__/file-mock.ts`
+
+```typescript
+const mock = "test-file-stub";
+
+export default mock;
+```
+
+`src/mocks/server.ts`
+
+```typescript
+import { setupServer } from "msw/node";
+
+import { handlers } from "./handlers";
+
+const server = setupServer(...handlers);
+
+export { server };
+```
+
+`src/setup-tests.ts`
+
+```typescript
+import "@testing-library/jest-dom";
+
+import { server } from "mocks/server";
+
+beforeAll(() => server.listen());
+
+afterEach(() => server.resetHandlers());
+
+afterAll(() => server.close());
+```
+
+`src/test-utils.ts`
+
+```typescript
+import userEvent, { specialChars } from "@testing-library/user-event";
+
+export { userEvent, specialChars };
+export { render, screen, waitFor } from "@testing-library/react";
+export { renderHook } from "@testing-library/react-hooks";
+```
+
+`package.json`
+
+```json
+{
+  "scripts": {
+    "test": "jest --watchAll --detectOpenHandles",
+    "test:coverage": "jest --coverage"
+  }
+}
+```
+
 ## Storybook
 
 Installation script
@@ -212,7 +247,7 @@ npx ynpx sb init
 Installation of additional packages
 
 ```shell
-yarn add -D sass-loader
+yarn add -D sass-loader msw-storybook-addon
 ```
 
 **Note**: `css-loader` and `style-loader` are Storybook dependencies, so it is not necessary to install them separately.
@@ -273,8 +308,14 @@ module.exports = config;
 `.storybook/preview.js`
 
 ```javascript
+import { addDecorator } from "@storybook/react";
+import { initializeWorker, mswDecorator } from "msw-storybook-addon";
+
 // Import the same styles as in `main.tsx`.
 import "../src/styles/index.scss";
+
+initializeWorker();
+addDecorator(mswDecorator);
 
 const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -287,6 +328,16 @@ const parameters = {
 };
 
 export { parameters };
+```
+
+`package.json`
+
+```json
+{
+  "scripts": {
+    "storybook": "start-storybook -s ./ -p 6006"
+  }
+}
 ```
 
 ## EditorConfig
