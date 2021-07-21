@@ -64,7 +64,7 @@ dist
 
 ## Visual Studio Code
 
-### Visual Studio Code Extensions
+### Extensions
 
 - [Bracket Pair Colorizer 2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2)
 - [browserslist](https://marketplace.visualstudio.com/items?itemName=webben.browserslist) (enabled only if needed)
@@ -83,7 +83,7 @@ dist
 
 **Note**: run `code --list-extensions` in terminal to get extensions list.
 
-### Visual Studio Code config
+### Config
 
 ```jsonc
 {

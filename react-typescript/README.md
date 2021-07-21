@@ -606,7 +606,7 @@ yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser es
     "react/jsx-no-constructed-context-values": "error",
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-useless-fragment.md
     "react/jsx-no-useless-fragment": "error",
-    // TypeScript handles this
+    // Handled by TypeScript
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prop-types.md
     "react/prop-types": "off",
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md
@@ -702,16 +702,6 @@ yarn add -D stylelint stylelint-config-standard stylelint-config-prettier stylel
 }
 ```
 
-## Visual Studio Code
-
-`.vscode/settings.json`
-
-```jsonc
-{
-  "typescript.tsdk": "node_modules\\typescript\\lib"
-}
-```
-
 ## Git ignore
 
 `.gitignore`
@@ -725,4 +715,71 @@ coverage
 
 # Dependency directories
 node_modules
+```
+
+## Visual Studio Code
+
+`.vscode/settings.json`
+
+```jsonc
+{
+  "typescript.tsdk": "node_modules\\typescript\\lib"
+}
+```
+
+### Extensions
+
+- [Bracket Pair Colorizer 2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2)
+- [browserslist](https://marketplace.visualstudio.com/items?itemName=webben.browserslist) (enabled only if needed)
+- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) (enabled only if needed)
+- [filesize](https://marketplace.visualstudio.com/items?itemName=mkxml.vscode-filesize) (enabled only if needed)
+- [GitLens — Git supercharged](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+- [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
+- [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
+- [One Monokai Theme](https://marketplace.visualstudio.com/items?itemName=azemoh.one-monokai)
+- [Path Autocomplete](https://marketplace.visualstudio.com/items?itemName=ionutvmi.path-autocomplete)
+- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) (enabled only if needed)
+- [Russian - Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-russian) (enabled only if needed)
+- [stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) (enabled only if needed)
+
+**Note**: run `code --list-extensions` in terminal to get extensions list.
+
+### Config
+
+```jsonc
+{
+  "cSpell.enableFiletypes": ["diff", "jsx-tags", "xml"],
+  "cSpell.language": "en,ru,ru-RU,en-GB,en-US",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.linkedEditing": true,
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [80],
+  "editor.tabSize": 2,
+  "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?_",
+  "explorer.compactFolders": false,
+  "files.associations": {
+    ".eslintignore": "ignore",
+    ".huskyrc": "json",
+    ".lintstagedrc": "json",
+    ".stylelintrc": "json"
+  },
+  "files.autoSave": "off",
+  "files.insertFinalNewline": true,
+  "git.allowNoVerifyCommit": true,
+  "git.confirmSync": false,
+  "gitlens.views.remotes.branches.layout": "tree",
+  "gitlens.views.stashes.files.layout": "tree",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "path-autocomplete.extensionOnImport": true,
+  "workbench.colorTheme": "One Monokai",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.startupEditor": "none"
+}
 ```
