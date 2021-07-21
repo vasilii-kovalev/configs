@@ -1,4 +1,4 @@
-# React + TypeScript config
+# React + TypeScript configs
 
 ## Vite
 

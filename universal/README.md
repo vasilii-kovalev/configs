@@ -1,4 +1,4 @@
-# Universal config
+# Universal configs
 
 ## EditorConfig
 
