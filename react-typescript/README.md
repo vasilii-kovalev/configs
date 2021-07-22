@@ -57,6 +57,7 @@ export default config;
     /*
       Default value `false` was changed because:
       - It breaks `identity-obj-proxy` work
+        https://github.com/keyz/identity-obj-proxy/issues/9#issuecomment-439625933
     */
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
