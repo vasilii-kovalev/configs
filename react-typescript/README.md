@@ -58,7 +58,7 @@ export default config;
       Default value `false` was changed because:
       - It breaks `identity-obj-proxy` work
     */
-    "esModuleInterop": false,
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     /*
@@ -174,33 +174,51 @@ yarn add -D jest jest-watch-typeahead @testing-library/dom @testing-library/jest
 npm i -D jest jest-watch-typeahead @testing-library/dom @testing-library/jest-dom @testing-library/react @testing-library/user-event @testing-library/react-hooks ts-jest identity-obj-proxy
 ```
 
-`jest.config.json`
+`jest.config.js`
 
-```json
-{
-  "collectCoverageFrom": [
+```javascript
+"use strict";
+
+const config = {
+  collectCoverageFrom: [
     "**/*.{ts,tsx}",
     "!**/*.stories.tsx",
     "!*.{ts,tsx}",
     "!src/*.{ts,tsx}",
     "!src/__mocks__/*",
-    "!src/mocks/*"
+    "!src/mocks/*",
   ],
-  "moduleDirectories": ["node_modules", "src"],
-  "moduleNameMapper": {
+  // https://stackoverflow.com/a/51174924/11293963
+  moduleDirectories: ["node_modules", "src"],
+  moduleNameMapper: {
+    // https://jestjs.io/docs/webpack#mocking-css-modules
     "\\.scss$": "identity-obj-proxy",
-    "\\.svg$": "<rootDir>/src/__mocks__/file-mock.ts"
+    // https://jestjs.io/docs/webpack#handling-static-assets
+    "\\.svg$": "<rootDir>/src/__mocks__/file-mock.ts",
   },
-  "setupFilesAfterEnv": ["<rootDir>/src/setup-tests.ts"],
-  "testEnvironment": "jsdom",
-  "transform": {
-    "^.+\\.tsx?$": "ts-jest"
+  setupFilesAfterEnv: ["<rootDir>/src/setup-tests.ts"],
+  testEnvironment: "jsdom",
+  transform: {
+    /*
+      There are some other solutions:
+      - @swc/jest (https://www.npmjs.com/package/@swc/jest)
+      - esbuild-jest (https://www.npmjs.com/package/esbuild-jest)
+
+      See this article: https://miyauchi.dev/posts/speeding-up-jest/
+
+      But they don't work with new React transform for now, i.e. they require
+      React to be imported in each `*.tsx` file.
+    */
+    "^.+\\.tsx?$": "ts-jest",
   },
-  "watchPlugins": [
+  watchPlugins: [
+    // https://github.com/jest-community/jest-watch-typeahead
     "jest-watch-typeahead/filename",
-    "jest-watch-typeahead/testname"
-  ]
-}
+    "jest-watch-typeahead/testname",
+  ],
+};
+
+module.exports = config;
 ```
 
 `src/__mocks__/file-mock.ts`
@@ -761,7 +779,7 @@ npm i -D -E stylelint stylelint-config-standard stylelint-config-prettier stylel
 ```javascript
 "use strict";
 
-module.exports = {
+const config = {
   extends: [
     // https://github.com/stylelint/stylelint-config-recommended/blob/master/index.js
     // https://github.com/stylelint/stylelint-config-standard/blob/master/index.js
@@ -871,6 +889,8 @@ module.exports = {
     "scss/selector-no-redundant-nesting-selector": true,
   },
 };
+
+module.exports = config;
 ```
 
 `package.json`
