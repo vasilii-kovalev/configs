@@ -2,7 +2,7 @@
 
 ## EditorConfig
 
-`.editorconfig`
+### .editorconfig
 
 ```editor-config
 root = true
@@ -18,13 +18,21 @@ trim_trailing_whitespace = true
 
 ## Prettier
 
-Installation script
+### Installation script
+
+#### Yarn
 
 ```shell
 yarn add -D -E prettier
 ```
 
-`.prettierrc`
+#### npm
+
+```shell
+npm i -D -E prettier
+```
+
+### .prettierrc
 
 ```json
 {
@@ -43,7 +51,7 @@ yarn add -D -E prettier
 }
 ```
 
-`.prettierignore`
+### .prettierignore
 
 ```ignore
 # Artifacts
@@ -51,7 +59,7 @@ build
 dist
 ```
 
-`package.json`
+### package.json
 
 ```json
 {

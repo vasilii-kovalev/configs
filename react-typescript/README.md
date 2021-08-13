@@ -2,34 +2,49 @@
 
 ## Vite
 
-Creation of a Vite project
+### Creation of a Vite project
+
+#### Yarn
 
 ```shell
-# Yarn
 yarn create vite app --template react-ts
-# npm
+```
+
+#### npm
+
+```shell
 npm init vite app -- --template react-ts
 ```
 
-Installation of the dependencies
+### Installation of the dependencies
+
+#### Yarn
 
 ```shell
-# Yarn
 yarn install
-# npm
+```
+
+#### npm
+
+```shell
 npm i
 ```
 
-Installation of additional packages
+### Installation of additional packages
+
+#### Yarn
 
 ```shell
-# Yarn
 yarn add -D vite-tsconfig-paths
-# npm
+```
+
+#### npm
+
+```shell
 npm i -D vite-tsconfig-paths
 ```
 
-`vite.config.ts`
+### vite.config.ts
 
 ```typescript
 import reactRefresh from "@vitejs/plugin-react-refresh";
@@ -46,7 +61,7 @@ export default config;
 
 ## Typescript
 
-`tsconfig.json`
+### tsconfig.json
 
 ```jsonc
 {
@@ -81,7 +96,7 @@ export default config;
 }
 ```
 
-`package.json`
+### package.json
 
 ```json
 {
@@ -93,36 +108,51 @@ export default config;
 
 ## Styles
 
-Installation of Sass
+### Installation of Sass
+
+#### Yarn
 
 ```shell
-# Yarn
 yarn add -D sass
-# npm
+```
+
+#### npm
+
+```shell
 npm i -D sass
 ```
 
-Installation of additional packages
+### Installation of additional packages
+
+#### Yarn
 
 ```shell
-# Yarn
 yarn add classnames
-# npm
+```
+
+#### npm
+
+```shell
 npm i classnames
 ```
 
 ## MSW
 
-Installation script
+### Installation script
+
+#### Yarn
 
 ```shell
-# Yarn
 yarn add -D msw
-# npm
+```
+
+#### npm
+
+```shell
 npm i -D msw
 ```
 
-`src/mocks/handlers.ts`
+### src/mocks/handlers.ts
 
 ```typescript
 import { RestHandler } from "msw";
@@ -132,16 +162,21 @@ const handlers: RestHandler[] = [];
 export { handlers };
 ```
 
-Creation of the service worker
+### Creation of the service worker
+
+#### Yarn
 
 ```shell
-# Yarn
 yarn msw init . --save
-# npm
+```
+
+#### npm
+
+```shell
 npx msw init . --save
 ```
 
-`src/mocks/browser.ts`
+### src/mocks/browser.ts
 
 ```typescript
 import { setupWorker } from "msw";
@@ -152,7 +187,7 @@ const worker = setupWorker(...handlers);
 export { worker };
 ```
 
-`src/main.tsx`
+### src/main.tsx
 
 ```typescript
 if (process.env.NODE_ENV === "development") {
@@ -166,16 +201,21 @@ if (process.env.NODE_ENV === "development") {
 
 ## Tests
 
-Installation script
+### Installation script
+
+#### Yarn
 
 ```shell
-# Yarn
 yarn add -D jest jest-watch-typeahead @testing-library/dom @testing-library/jest-dom @testing-library/react @testing-library/user-event @testing-library/react-hooks ts-jest identity-obj-proxy
-# npm
+```
+
+#### npm
+
+```shell
 npm i -D jest jest-watch-typeahead @testing-library/dom @testing-library/jest-dom @testing-library/react @testing-library/user-event @testing-library/react-hooks ts-jest identity-obj-proxy
 ```
 
-`jest.config.js`
+### jest.config.js
 
 ```javascript
 "use strict";
@@ -222,7 +262,7 @@ const config = {
 module.exports = config;
 ```
 
-`src/__mocks__/file-mock.ts`
+### src/\_\_mocks\_\_/file-mock.ts
 
 ```typescript
 const mock = "test-file-stub";
@@ -230,7 +270,7 @@ const mock = "test-file-stub";
 export default mock;
 ```
 
-`src/mocks/server.ts`
+### src/mocks/server.ts
 
 ```typescript
 import { setupServer } from "msw/node";
@@ -242,7 +282,7 @@ const server = setupServer(...handlers);
 export { server };
 ```
 
-`src/setup-tests.ts`
+### src/setup-tests.ts
 
 ```typescript
 import "@testing-library/jest-dom";
@@ -256,7 +296,7 @@ afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 ```
 
-`src/test-utils.ts`
+### src/test-utils.ts
 
 ```typescript
 import userEvent, { specialChars } from "@testing-library/user-event";
@@ -266,7 +306,7 @@ export { render, screen, waitFor } from "@testing-library/react";
 export { renderHook } from "@testing-library/react-hooks";
 ```
 
-`package.json`
+### package.json
 
 ```json
 {
@@ -279,27 +319,37 @@ export { renderHook } from "@testing-library/react-hooks";
 
 ## Storybook
 
-Installation script
+### Installation script
+
+#### Yarn
 
 ```shell
-# Yarn
 npx ynpx sb init
-# npm
+```
+
+#### npm
+
+```shell
 npx sb init
 ```
 
-Installation of additional packages
+### Installation of additional packages
+
+#### Yarn
 
 ```shell
-# Yarn
 yarn add -D sass-loader@10.1.1 msw-storybook-addon
-# npm
+```
+
+#### npm
+
+```shell
 npm i -D sass-loader@10.1.1 msw-storybook-addon
 ```
 
 **Note**: `css-loader` and `style-loader` are Storybook dependencies, so it is not necessary to install them separately.
 
-`.storybook/main.js`
+### .storybook/main.js
 
 ```javascript
 const path = require("path");
@@ -352,7 +402,7 @@ const config = {
 module.exports = config;
 ```
 
-`.storybook/preview.js`
+### .storybook/preview.js
 
 ```javascript
 import { addDecorator } from "@storybook/react";
@@ -377,7 +427,7 @@ const parameters = {
 export { parameters };
 ```
 
-`package.json`
+### package.json
 
 ```json
 {
@@ -389,7 +439,7 @@ export { parameters };
 
 ## EditorConfig
 
-`.editorconfig`
+### .editorconfig
 
 ```editor-config
 root = true
@@ -405,16 +455,21 @@ trim_trailing_whitespace = true
 
 ## Prettier
 
-Installation script
+### Installation script
+
+#### Yarn
 
 ```shell
-# Yarn
 yarn add -D -E prettier
-# npm
+```
+
+#### npm
+
+```shell
 npm i -D -E prettier
 ```
 
-`.prettierrc`
+### .prettierrc
 
 ```json
 {
@@ -433,7 +488,7 @@ npm i -D -E prettier
 }
 ```
 
-`.prettierignore`
+### .prettierignore
 
 ```ignore
 # Artifacts
@@ -446,7 +501,7 @@ coverage
 mockServiceWorker.js
 ```
 
-`package.json`
+### package.json
 
 ```json
 {
@@ -459,14 +514,21 @@ mockServiceWorker.js
 
 ## ESLint
 
+### Installation script
+
+#### Yarn
+
 ```shell
-# Yarn
 yarn add -D -E eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-plugin-prettier eslint-plugin-import eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jsx-a11y eslint-plugin-jest eslint-plugin-testing-library
-# npm
+```
+
+#### npm
+
+```shell
 npm i -D -E eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-plugin-prettier eslint-plugin-import eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jsx-a11y eslint-plugin-jest eslint-plugin-testing-library
 ```
 
-`.eslintrc`
+### .eslintrc
 
 ```jsonc
 {
@@ -753,7 +815,7 @@ npm i -D -E eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser es
 }
 ```
 
-`package.json`
+### package.json
 
 ```json
 {
@@ -766,16 +828,21 @@ npm i -D -E eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser es
 
 ## Stylelint
 
-Installation script
+### Installation script
+
+#### Yarn
 
 ```shell
-# Yarn
 yarn add -D -E stylelint stylelint-config-standard stylelint-config-prettier stylelint-config-css-modules stylelint-order stylelint-scss
-# npm
+```
+
+#### npm
+
+```shell
 npm i -D -E stylelint stylelint-config-standard stylelint-config-prettier stylelint-config-css-modules stylelint-order stylelint-scss
 ```
 
-`.stylelintrc.js`
+### .stylelintrc.js
 
 ```javascript
 "use strict";
@@ -894,7 +961,7 @@ const config = {
 module.exports = config;
 ```
 
-`package.json`
+### package.json
 
 ```json
 {
@@ -907,7 +974,7 @@ module.exports = config;
 
 ## Git ignore
 
-`.gitignore`
+### .gitignore
 
 ```ignore
 # Artifacts
@@ -922,7 +989,7 @@ node_modules
 
 ## Visual Studio Code
 
-`.vscode/settings.json`
+### .vscode/settings.json
 
 ```jsonc
 {
