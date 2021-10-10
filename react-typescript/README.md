@@ -447,7 +447,7 @@ root = true
 [*]
 charset = utf-8
 indent_size = 2
-indent_style = space
+indent_style = tab
 insert_final_newline = true
 max_line_length = 80
 trim_trailing_whitespace = true
@@ -473,7 +473,7 @@ npm i -D -E prettier
 
 ```json
 {
-  "arrowParens": "avoid",
+  "arrowParens": "always",
   "bracketSpacing": true,
   "endOfLine": "auto",
   "jsxBracketSameLine": false,
@@ -484,7 +484,7 @@ npm i -D -E prettier
   "singleQuote": false,
   "tabWidth": 2,
   "trailingComma": "all",
-  "useTabs": false
+  "useTabs": true
 }
 ```
 
@@ -999,9 +999,11 @@ node_modules
 
 ### Extensions
 
-- [Bracket Pair Colorizer 2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2)
+- [Auto Close Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag) (enabled only if needed)
+- [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments)
 - [browserslist](https://marketplace.visualstudio.com/items?itemName=webben.browserslist) (enabled only if needed)
 - [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+- [DotENV](https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv) (enabled only if needed)
 - [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) (enabled only if needed)
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) (enabled only if needed)
 - [filesize](https://marketplace.visualstudio.com/items?itemName=mkxml.vscode-filesize) (enabled only if needed)
@@ -1023,12 +1025,14 @@ node_modules
   "cSpell.enableFiletypes": ["diff", "jsx-tags", "xml"],
   "cSpell.language": "en,ru,ru-RU,en-GB,en-US",
   "diffEditor.ignoreTrimWhitespace": false,
+  "editor.bracketPairColorization.enabled": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.fixAll.stylelint": true
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
+  "editor.guides.bracketPairs": true,
   "editor.linkedEditing": true,
   "editor.renderWhitespace": "all",
   "editor.rulers": [80],
