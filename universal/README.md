@@ -9,7 +9,6 @@ root = true
 
 [*]
 charset = utf-8
-indent_size = 2
 indent_style = tab
 insert_final_newline = true
 max_line_length = 80
@@ -36,18 +35,17 @@ npm i -D -E prettier
 
 ```json
 {
-  "arrowParens": "always",
-  "bracketSpacing": true,
-  "endOfLine": "auto",
-  "jsxBracketSameLine": false,
-  "jsxSingleQuote": false,
-  "printWidth": 80,
-  "quoteProps": "as-needed",
-  "semi": true,
-  "singleQuote": false,
-  "tabWidth": 2,
-  "trailingComma": "all",
-  "useTabs": true
+	"arrowParens": "always",
+	"bracketSameLine": false,
+	"bracketSpacing": true,
+	"endOfLine": "auto",
+	"jsxSingleQuote": false,
+	"printWidth": 80,
+	"quoteProps": "as-needed",
+	"semi": true,
+	"singleQuote": false,
+	"trailingComma": "all",
+	"useTabs": true
 }
 ```
 
@@ -63,10 +61,10 @@ dist
 
 ```json
 {
-  "scripts": {
-    "prettier:check": "prettier . --check",
-    "prettier:fix": "prettier . --write"
-  }
+	"scripts": {
+		"prettier:check": "prettier . --check",
+		"prettier:fix": "prettier . --write"
+	}
 }
 ```
 
@@ -74,7 +72,7 @@ dist
 
 ### Extensions
 
-- [Auto Close Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag) (enabled only if needed)
+- [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag) (enabled only if needed)
 - [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments)
 - [browserslist](https://marketplace.visualstudio.com/items?itemName=webben.browserslist) (enabled only if needed)
 - [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
@@ -98,32 +96,42 @@ dist
 
 ```jsonc
 {
-  "cSpell.enableFiletypes": ["diff", "jsx-tags", "xml"],
-  "cSpell.language": "en,ru,ru-RU,en-GB,en-US",
-  "diffEditor.ignoreTrimWhitespace": false,
-  "editor.bracketPairColorization.enabled": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true
-  },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
-  "editor.guides.bracketPairs": true,
-  "editor.linkedEditing": true,
-  "editor.renderWhitespace": "all",
-  "editor.rulers": [80],
-  "editor.tabSize": 2,
-  "explorer.compactFolders": false,
-  "files.autoSave": "off",
-  "files.insertFinalNewline": true,
-  "git.allowNoVerifyCommit": true,
-  "git.confirmSync": false,
-  "gitlens.views.remotes.branches.layout": "tree",
-  "gitlens.views.stashes.files.layout": "tree",
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "path-autocomplete.extensionOnImport": true,
-  "workbench.colorTheme": "One Monokai",
-  "workbench.iconTheme": "material-icon-theme",
-  "workbench.startupEditor": "none"
+	"cSpell.enableFiletypes": ["diff", "jsx-tags", "xml"],
+	"cSpell.language": "en,ru,ru-RU,en-GB,en-US",
+	"diffEditor.ignoreTrimWhitespace": false,
+	"editor.bracketPairColorization.enabled": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true,
+		"source.fixAll.stylelint": true
+	},
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.fontFamily": "'Fira Code', Consolas, 'Courier New', monospace",
+	"editor.formatOnSave": true,
+	"editor.guides.bracketPairs": true,
+	"editor.linkedEditing": true,
+	"editor.renderWhitespace": "all",
+	"editor.rulers": [80],
+	"editor.tabSize": 2,
+	"explorer.compactFolders": false,
+	"files.autoSave": "off",
+	"files.insertFinalNewline": true,
+	"git.allowNoVerifyCommit": true,
+	"git.confirmSync": false,
+	"gitlens.views.remotes.branches.layout": "tree",
+	"gitlens.views.stashes.files.layout": "tree",
+	"markdownlint.config": {
+		"no-hard-tabs": {
+			"code_blocks": false
+		}
+	},
+	"path-autocomplete.extensionOnImport": true,
+	"workbench.colorCustomizations": {
+		"[One Monokai]": {
+			"editor.wordHighlightBorder": "#c5c5c5"
+		}
+	},
+	"workbench.colorTheme": "One Monokai",
+	"workbench.iconTheme": "material-icon-theme",
+	"workbench.startupEditor": "none"
 }
 ```
