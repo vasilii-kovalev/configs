@@ -1060,6 +1060,7 @@ node_modules
   "gitlens.views.remotes.branches.layout": "tree",
   "gitlens.views.stashes.files.layout": "tree",
   "path-autocomplete.extensionOnImport": true,
+  "terminal.integrated.scrollback": 5000,
   "workbench.colorCustomizations": {
     "[One Monokai]": {
       "editor.wordHighlightBorder": "#c5c5c5"
