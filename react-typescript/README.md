@@ -1043,6 +1043,7 @@ node_modules
     "source.fixAll.stylelint": true
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // Fira Code font: https://github.com/tonsky/FiraCode
   "editor.fontFamily": "'Fira Code', Consolas, 'Courier New', monospace",
   "editor.formatOnSave": true,
   "editor.guides.bracketPairs": true,
