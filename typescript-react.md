@@ -23,7 +23,7 @@ bun install
 ### Additional libraries
 
 ```sh
-bun add -D -E vite-tsconfig-paths sonda
+bun add -D -E vite-tsconfig-paths@5.1.4 sonda
 ```
 
 ### vite.config.ts
@@ -2563,6 +2563,7 @@ bun add -D -E unocss@66.3.3 @unocss/eslint-config@66.3.3
 #### vite.config.ts
 
 ```typescript
+// ... other options
 import unoCSS from "unocss/vite";
 
 const config = defineConfig({
@@ -2658,4 +2659,33 @@ const eslintConfig = disableAutofix(
 		"antfu.unocss"
 	]
 }
+```
+
+### vanilla-extract
+
+[vanilla-extract official site](https://vanilla-extract.style)
+
+#### Installation
+
+```sh
+bun add -D -E @vanilla-extract/css @vanilla-extract/vite-plugin
+```
+
+#### vite.config.ts
+
+```typescript
+// ... other options
+import {
+	vanillaExtractPlugin,
+} from "@vanilla-extract/vite-plugin";
+
+const config = defineConfig({
+	// ... other options
+	plugins: [
+		// ... other options
+		vanillaExtractPlugin(),
+	],
+});
+
+export default config;
 ```
