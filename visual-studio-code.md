@@ -20,6 +20,7 @@
 * [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 * [Prisma](https://marketplace.visualstudio.com/items?itemName=Prisma.prisma)
 * [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
+* [UnoCSS](https://marketplace.visualstudio.com/items?itemName=antfu.unocss)
 
 ## User settings
 

@@ -2,9 +2,11 @@
 
 ## Runtime
 
-[Bun](https://bun.sh)
+[Bun official site](https://bun.sh)
 
 ## Bundler
+
+[Vite official site](https://vite.dev)
 
 ### Installation
 
@@ -65,15 +67,27 @@ export default config;
 
 ## React
 
-### Version
+[React official site](https://react.dev)
 
-19.0.1
+### Installation
+
+```sh
+bun add -E react@19.0.1 react-dom@19.1.0
+```
+
+```sh
+bun add -D -E @types/react@19.1.8 @types/react-dom@19.1.6
+```
 
 ## TypeScript
 
-### Version
+[TypeScript official site](https://www.typescriptlang.org)
 
-5.8.3
+### Installation
+
+```sh
+bun add -D -E typescript@5.8.3
+```
 
 ### tsconfig.app.json
 
@@ -122,15 +136,6 @@ export default config;
 
 `compilerOptions.lib` should contain only one `ES*` option.
 
-### .vscode/settings.json
-
-```jsonc
-{
-	// ... other options
-	"typescript.tsdk": "node_modules\\typescript\\lib"
-}
-```
-
 ### package.json
 
 ```jsonc
@@ -143,18 +148,18 @@ export default config;
 }
 ```
 
-## EditorConfig
-
-### .vscode/extensions.json
+### .vscode/settings.json
 
 ```jsonc
 {
-	"recommendations": [
-		// ... other options
-		"EditorConfig.EditorConfig"
-	]
+	// ... other options
+	"typescript.tsdk": "node_modules\\typescript\\lib"
 }
 ```
+
+## EditorConfig
+
+[EditorConfig official site](https://editorconfig.org)
 
 ### .editorconfig
 
@@ -174,7 +179,20 @@ indent_size = 2
 indent_style = space
 ```
 
+### .vscode/extensions.json
+
+```jsonc
+{
+	"recommendations": [
+		// ... other options
+		"EditorConfig.EditorConfig"
+	]
+}
+```
+
 ## ESLint
+
+[ESLint official site](https://eslint.org)
 
 ### Installation
 
@@ -195,50 +213,6 @@ bun add -D -E @eslint-react/eslint-plugin@1.51.1 @eslint/js@9.28.0 @morev/eslint
 	]
 }
 ```
-
-### .vscode/extensions.json
-
-```jsonc
-{
-	"recommendations": [
-		// ... other options
-		"dbaeumer.vscode-eslint"
-	]
-}
-```
-
-### .vscode/settings.json
-
-```jsonc
-{
-	// ... other options
-	"[javascript][javascriptreact][typescript][typescriptreact]": {
-		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
-	},
-	"editor.codeActionsOnSave": {
-		"source.fixAll.eslint": "explicit"
-	},
-	/*
-		Necessary to support ESLint TypeScript config file.
-		More info: https://github.com/microsoft/vscode-eslint/issues/1917#issuecomment-3059655482
-	*/
-	"eslint.runtime": "bun"
-}
-```
-
-### package.json
-
-```jsonc
-{
-	// ... other options
-	"scripts": {
-		// ... other options
-		"check:eslint": "bun --bun eslint . --quiet"
-	}
-}
-```
-
-`bun --bun` is required, because ESLint won't recognize Bun's usage otherwise, and will throw an error about absent `jiti` package.
 
 ### eslint.config.ts
 
@@ -2529,3 +2503,159 @@ export default eslintConfig;
 ```
 
 </details>
+
+### package.json
+
+```jsonc
+{
+	// ... other options
+	"scripts": {
+		// ... other options
+		"check:eslint": "bun --bun eslint . --quiet"
+	}
+}
+```
+
+`bun --bun` is required, because ESLint won't recognize Bun's usage otherwise, and will throw an error about absent `jiti` package.
+
+### .vscode/extensions.json
+
+```jsonc
+{
+	"recommendations": [
+		// ... other options
+		"dbaeumer.vscode-eslint"
+	]
+}
+```
+
+### .vscode/settings.json
+
+```jsonc
+{
+	// ... other options
+	"[javascript][javascriptreact][typescript][typescriptreact]": {
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
+	},
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit"
+	},
+	/*
+		Necessary to support ESLint TypeScript config file.
+		More info: https://github.com/microsoft/vscode-eslint/issues/1917#issuecomment-3059655482
+	*/
+	"eslint.runtime": "bun"
+}
+```
+
+## Styles
+
+### UnoCSS
+
+[UnoCSS official site](https://unocss.dev)
+
+#### Installation
+
+```sh
+bun add -D -E unocss@66.3.3 @unocss/eslint-config@66.3.3
+```
+
+#### vite.config.ts
+
+```typescript
+import unoCSS from "unocss/vite";
+
+const config = defineConfig({
+	// ... other options
+	plugins: [
+		// ... other options
+		unoCSS(),
+	],
+});
+
+export default config;
+```
+
+#### uno.config.ts
+
+```typescript
+import {
+	defineConfig,
+} from "unocss";
+
+const config = defineConfig({
+	presets: [],
+});
+
+export default config;
+```
+
+#### main.tsx
+
+```typescript
+// ... other options
+import "virtual:uno.css";
+```
+
+### tsconfig.node.json
+
+```jsonc
+{
+	// ... other options
+	"include": [
+		// ... other options
+		"uno.config.ts"
+	]
+}
+```
+
+#### eslint.config.ts
+
+```typescript
+// ... other options
+import unocss from "@unocss/eslint-config/flat";
+
+const eslintConfig = disableAutofix(
+	config(
+		// ... other options
+		{
+			files: [
+				"**/*.tsx",
+			],
+			extends: [
+				// ... other options
+				unocss,
+			],
+			rules: [
+				// ... other options
+
+				/*
+					==================================================
+					UnoCSS plugin
+					==================================================
+				*/
+
+				// https://unocss.dev/integrations/eslint#unocss-order
+				"unocss/order": ERROR,
+				"unocss/order-attributify": ERROR,
+				// https://unocss.dev/integrations/eslint#unocss-blocklist
+				"unocss/blocklist": ERROR,
+				// https://unocss.dev/integrations/eslint#unocss-enforce-class-compile
+				// The rule is disabled because compile class transformer is not used.
+				"unocss/enforce-class-compile": DISABLED,
+			],
+		},
+	)
+);
+```
+
+#### .vscode/extensions.json
+
+```jsonc
+{
+	"recommendations": [
+		// ... other options
+		"antfu.unocss"
+	]
+}
+```
