@@ -133,7 +133,7 @@ export default config;
 
 ### package.json
 
-```json
+```jsonc
 {
 	// ... other options
 	"scripts": {
@@ -228,7 +228,7 @@ bun add -D -E @eslint-react/eslint-plugin@1.51.1 @eslint/js@9.28.0 @morev/eslint
 
 ### package.json
 
-```json
+```jsonc
 {
 	// ... other options
 	"scripts": {
