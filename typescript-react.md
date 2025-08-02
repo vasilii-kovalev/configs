@@ -314,7 +314,6 @@ const eslintConfig = disableAutofix(
 		{
 			files: [
 				"**/*.{ts,tsx}",
-				"eslint.config.ts",
 			],
 			extends: [
 				js.configs.all,
@@ -323,7 +322,7 @@ const eslintConfig = disableAutofix(
 				// @ts-expect-error Incorrect plugin types.
 				importConfigs.typescript,
 				stylistic.configs.all,
-				typeScriptConfigs.recommendedTypeChecked,
+				typeScriptConfigs.all,
 			],
 			settings: {
 				"import-x/resolver": {
@@ -386,7 +385,8 @@ const eslintConfig = disableAutofix(
 				// https://eslint.org/docs/latest/rules/no-constant-binary-expression
 				"no-constant-binary-expression": ERROR,
 				// https://eslint.org/docs/latest/rules/no-constant-condition
-				"no-constant-condition": ERROR,
+				// The "@typescript-eslint/no-unnecessary-condition" rule takes care of it.
+				"no-constant-condition": DISABLED,
 				// https://eslint.org/docs/latest/rules/no-constructor-return
 				"no-constructor-return": ERROR,
 				// https://eslint.org/docs/latest/rules/no-control-regex
@@ -925,7 +925,16 @@ const eslintConfig = disableAutofix(
 				"no-var": ERROR,
 				// https://eslint.org/docs/latest/rules/no-void
 				// Use `undefined` instead.
-				"no-void": ERROR,
+				"no-void": [
+					ERROR,
+					{
+						/*
+							This option is set to `true` to compliment `ignoreVoid` one in the "@typescript-eslint/no-floating-promises"
+							rule.
+						*/
+						allowAsStatement: true,
+					},
+				],
 				// https://eslint.org/docs/latest/rules/no-warning-comments
 				// This rule is disabled because warning comments are allowed.
 				"no-warning-comments": DISABLED,
@@ -1594,38 +1603,12 @@ const eslintConfig = disableAutofix(
 				"@stylistic/wrap-regex": ERROR,
 				// https://eslint.style/rules/default/yield-star-spacing
 				"@stylistic/yield-star-spacing": ERROR,
-			},
-		},
-		{
-			files: [
-				"**/*.{ts,tsx}",
-			],
-			extends: [
-				typeScriptConfigs.all,
-			],
-			rules: {
+
 				/*
 					==================================================
 					TypeScript plugin
 					==================================================
 				*/
-
-				// Adjust core rules.
-
-				// The "@typescript-eslint/no-unnecessary-condition" rule takes care of it.
-				"no-constant-condition": DISABLED,
-				"no-void": [
-					ERROR,
-					{
-						/*
-							This option is set to `true` to compliment `ignoreVoid` one in the "@typescript-eslint/no-floating-promises"
-							rule.
-						*/
-						allowAsStatement: true,
-					},
-				],
-
-				// Plugin rules.
 
 				// https://typescript-eslint.io/rules/adjacent-overload-signatures
 				"@typescript-eslint/adjacent-overload-signatures": ERROR,
@@ -2527,31 +2510,6 @@ const eslintConfig = disableAutofix(
 						propertyValue: "parens-new-line",
 					},
 				],
-			},
-		},
-		{
-			files: [
-				"**/slice.ts",
-			],
-			rules: {
-				"no-param-reassign": [
-					ERROR,
-					{
-						ignorePropertyModificationsFor: [
-							"state",
-						],
-						props: true,
-					},
-				],
-			},
-		},
-		{
-			files: [
-				"**/schemas.ts",
-			],
-			rules: {
-				"@typescript-eslint/explicit-function-return-type": DISABLED,
-				"@typescript-eslint/explicit-module-boundary-types": DISABLED,
 			},
 		},
 		{
