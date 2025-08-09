@@ -57,7 +57,7 @@
 	"markdown.preview.fontSize": 13,
 	"scm.inputFontSize": 13,
 	"telemetry.feedback.enabled": false,
-	"terminal.integrated.defaultProfile.windows": "Git Bash",
+	"terminal.integrated.defaultProfile.windows": "PowerShell",
 	"terminal.integrated.fontSize": 13,
 	"terminal.integrated.scrollback": 5000,
 	"typescript.preferences.jsxAttributeCompletionStyle": "none",
