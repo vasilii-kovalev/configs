@@ -28,7 +28,8 @@
 ```jsonc
 {
 	"[markdown]": {
-		"editor.wordWrap": "wordWrapColumn"
+		"editor.wordWrap": "wordWrapColumn",
+		"editor.wordWrapColumn": 120
 	},
 	"chat.commandCenter.enabled": false,
 	"debug.console.fontSize": 13,
