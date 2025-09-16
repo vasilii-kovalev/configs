@@ -4,6 +4,7 @@
 
 ### Always enabled
 
+* [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments)
 * [change-case](https://marketplace.visualstudio.com/items?itemName=wmaurer.change-case)
 * [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
 * [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
