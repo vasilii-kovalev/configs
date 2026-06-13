@@ -3,6 +3,7 @@
 ## Prerequisites
 
 - Node.js version: 24.14.1 or later
+- npm version: 11.10.0 or later
 
 ## Installation
 
@@ -14,6 +15,13 @@ npm create vite
 
 1. Select "React"
 2. Select "TypeScript + React compiler"
+
+### `.npmrc`
+
+```properties
+# Only install package versions published more than 2 days ago.
+min-release-age=2
+```
 
 ### `dependencies`
 
