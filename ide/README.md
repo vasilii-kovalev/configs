@@ -1,4 +1,4 @@
 # IDE configs
 
-- [Cursor](./cursor)
-- [Visual Studio Code](./visual-studio-code)
+- [Cursor](./cursor.md)
+- [Visual Studio Code](./visual-studio-code.md)
