@@ -10,3 +10,4 @@ The umbrella repository for all configs, used in web development.
 - [Projects](./projects)
   - [Common](./projects/common)
   - [Vite + React + TypeScript + ESLint](./projects/vite-react-typescript-eslint)
+  - [Vite + Solid + TypeScript + ESLint](./projects/vite-solid-typescript-eslint)
