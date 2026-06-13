@@ -1,0 +1,10 @@
+{
+	"recommendations": [
+		"DavidAnson.vscode-markdownlint",
+		"dbaeumer.vscode-eslint",
+		"EditorConfig.EditorConfig",
+		"PKief.material-icon-theme",
+		"streetsidesoftware.code-spell-checker",
+		"stylelint.vscode-stylelint"
+	]
+}

@@ -4,5 +4,9 @@ The umbrella repository for all configs, used in web development.
 
 ## Available configs
 
-- [Typescript + React](./typescript-react.md)
-- [Visual Studio Code](./visual-studio-code.md)
+- [IDE](./ide)
+  - [Cursor](./ide/cursor)
+  - [Visual Studio Code](./ide/visual-studio-code)
+- [Projects](./projects)
+  - [Common](./projects/common)
+  - [Vite + React + TypeScript + ESLint](./projects/vite-react-typescript-eslint)

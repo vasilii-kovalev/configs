@@ -1,8 +1,5 @@
 {
 	"markdownlint.config": {
-		"no-duplicate-heading": {
-			"siblings_only": true
-		},
 		"no-hard-tabs": {
 			"code_blocks": false
 		},
@@ -11,6 +8,6 @@
 				"details",
 				"summary"
 			]
-		},
+		}
 	}
 }
