@@ -46,6 +46,7 @@ npm install -E -D @babel/core@7.29.7 @eslint-react/eslint-plugin@5.8.12 @eslint/
 	"devDependencies": {
 		"@babel/core": "7.29.7",
 		"@eslint-react/eslint-plugin": "5.8.12",
+		"@eslint/js": "10.0.1",
 		"@morev/eslint-disable-autofix": "1.1.0",
 		"@rolldown/plugin-babel": "0.2.3",
 		"@stylistic/eslint-plugin": "5.10.0",
