@@ -18,7 +18,7 @@ npm create vite
 
 ### `.npmrc`
 
-```properties
+```npmrc
 # Only install package versions published more than 2 days ago.
 min-release-age=2
 ```
