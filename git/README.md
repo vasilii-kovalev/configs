@@ -1,0 +1,3 @@
+# Git configs
+
+- [`.bashrc`](./.bashrc)

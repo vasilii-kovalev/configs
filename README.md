@@ -4,6 +4,8 @@ The umbrella repository for all configs, used in web development.
 
 ## Available configs
 
+- [Git](./git/README.md)
+  - [`.bashrc`](./git/.bashrc)
 - [IDE](./ide/README.md)
   - [Cursor](./ide/cursor.md)
   - [Visual Studio Code](./ide/visual-studio-code.md)
