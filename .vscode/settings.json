@@ -1,13 +1,5 @@
 {
-	"markdownlint.config": {
-		"no-hard-tabs": {
-			"code_blocks": false
-		},
-		"no-inline-html": {
-			"allowed_elements": [
-				"details",
-				"summary"
-			]
-		}
+	"editor.codeActionsOnSave": {
+		"source.fixAll.markdownlint": "explicit"
 	}
 }
