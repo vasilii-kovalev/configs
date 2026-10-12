@@ -45,20 +45,7 @@
 	"terminal.integrated.commandsToSkipShell": [
 		"aichat.newchataction"
 	],
-	"terminal.integrated.defaultProfile.windows": "PowerShell",
-	/*
-		Prevents problems with Yarn usage ("Cannot be loaded because running scripts
-		is disabled on this system...").
-	*/
-	"terminal.integrated.profiles.windows": {
-		"PowerShell": {
-			"source": "PowerShell",
-			"args": [
-				"-ExecutionPolicy",
-				"RemoteSigned"
-			]
-		}
-	},
+	"terminal.integrated.defaultProfile.windows": "Git Bash",
 	"terminal.integrated.scrollback": 5000,
 	"terminal.integrated.stickyScroll.enabled": false,
 	"typescript.preferences.jsxAttributeCompletionStyle": "none",
