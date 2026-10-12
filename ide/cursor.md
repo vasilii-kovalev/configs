@@ -54,6 +54,33 @@
 }
 ```
 
+## Keyboard shortcuts
+
+### `keybindings.json`
+
+```jsonc
+[
+	{
+		"key": "ctrl+e",
+		"command": "-cursor.toggleAgentWindowIDEUnification",
+		"when": "!isGlass && workbenchState != 'empty'"
+	},
+	{
+		"key": "ctrl+k",
+		"command": "-aipopup.action.modal.generate",
+		"when": "editorFocus && !composerBarIsVisible"
+	},
+	{
+		"key": "ctrl+k s",
+		"command": "saveAll"
+	},
+	{
+		"key": "ctrl+shift+l",
+		"command": "-composer.newAgentChat"
+	}
+]
+```
+
 ## Extensions
 
 ### List
