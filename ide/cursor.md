@@ -39,16 +39,14 @@
 	"git.blame.editorDecoration.enabled": true,
 	"git.blame.statusBarItem.enabled": false,
 	"git.confirmSync": false,
-	"javascript.preferences.jsxAttributeCompletionStyle": "none",
+  "js/ts.preferences.jsxAttributeCompletionStyle": "none",
 	"json.schemaDownload.enable": true,
-	"telemetry.feedback.enabled": false,
 	"terminal.integrated.commandsToSkipShell": [
 		"aichat.newchataction"
 	],
 	"terminal.integrated.defaultProfile.windows": "Git Bash",
 	"terminal.integrated.scrollback": 5000,
 	"terminal.integrated.stickyScroll.enabled": false,
-	"typescript.preferences.jsxAttributeCompletionStyle": "none",
 	"workbench.colorTheme": "Default Light Modern",
 	"workbench.iconTheme": "material-icon-theme",
 	"workbench.startupEditor": "none",
