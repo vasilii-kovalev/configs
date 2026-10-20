@@ -27,3 +27,22 @@ indent_style = space
 min-release-age=3
 save-exact=true
 ```
+
+### `package.json`
+
+```json
+{
+	"devEngines": {
+		"packageManager": {
+			"name": "npm",
+			"version": "^12.0.0",
+			"onFail": "error"
+		},
+		"runtime": {
+			"name": "node",
+			"version": "^22.22.2 || ^24.15.0 || >=26.0.0",
+			"onFail": "error"
+		}
+	}
+}
+```
