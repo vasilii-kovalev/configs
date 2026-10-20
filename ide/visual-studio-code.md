@@ -50,6 +50,7 @@
 	"terminal.integrated.stickyScroll.enabled": false,
 	"workbench.activityBar.location": "top",
 	"workbench.colorTheme": "Light Modern",
+	"workbench.editor.useModal": "off",
 	"workbench.iconTheme": "material-icon-theme",
 	"workbench.startupEditor": "none",
 	"workbench.tree.enableStickyScroll": false
