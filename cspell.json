@@ -1,0 +1,29 @@
+{
+	"ignoreWords": [
+		"aichat",
+		"aipopup",
+		"anson",
+		"callability",
+		"chunkname",
+		"classlist",
+		"consolas",
+		"constructability",
+		"dbaeumer",
+		"fira",
+		"innerhtml",
+		"isnan",
+		"morev",
+		"multilines",
+		"newchataction",
+		"nonblock",
+		"nonconstructor",
+		"nonoctal",
+		"setstate",
+		"sonda",
+		"textnodes",
+		"thenables",
+		"trunc",
+		"userprofile"
+	],
+	"version": "0.2"
+}
