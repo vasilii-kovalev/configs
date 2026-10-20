@@ -69,7 +69,7 @@
 
 ### `extensions.json`
 
-```json
+```jsonc
 {
 	"recommendations": [
 		"DavidAnson.vscode-markdownlint",

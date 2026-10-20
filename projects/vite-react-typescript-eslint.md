@@ -121,7 +121,7 @@ export default config;
 
 ### `tsconfig.app.json`
 
-```json
+```jsonc
 {
 	"compilerOptions": {
 		"tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
@@ -165,7 +165,7 @@ export default config;
 
 ### `tsconfig.json`
 
-```json
+```jsonc
 {
 	"files": [],
 	"references": [
@@ -181,7 +181,7 @@ export default config;
 
 ### `tsconfig.node.json`
 
-```json
+```jsonc
 {
 	"compilerOptions": {
 		"tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",

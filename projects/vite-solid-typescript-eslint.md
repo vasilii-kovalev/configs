@@ -127,7 +127,7 @@ import "solid-devtools";
 
 ### `tsconfig.app.json`
 
-```json
+```jsonc
 {
 	"compilerOptions": {
 		"tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
@@ -172,7 +172,7 @@ import "solid-devtools";
 
 ### `tsconfig.json`
 
-```json
+```jsonc
 {
 	"files": [],
 	"references": [
@@ -188,7 +188,7 @@ import "solid-devtools";
 
 ### `tsconfig.node.json`
 
-```json
+```jsonc
 {
 	"compilerOptions": {
 		"tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
