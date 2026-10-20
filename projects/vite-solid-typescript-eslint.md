@@ -16,23 +16,16 @@ npm create vite
 1. Select "Solid"
 2. Select "TypeScript"
 
-### `.npmrc`
-
-```npmrc
-# Only install package versions published more than 2 days ago.
-min-release-age=2
-```
-
 ### `dependencies`
 
 ```sh
-npm install -E solid-js@1.9.13
+npm install solid-js@1.9.13
 ```
 
 ### `devDependencies`
 
 ```sh
-npm install -E -D @eslint/js@10.0.1 @morev/eslint-disable-autofix@1.1.0 @stylistic/eslint-plugin@5.10.0 @types/node@25.9.2 eslint@10.4.1 eslint-import-resolver-typescript@4.4.5 eslint-plugin-import-x@4.16.2 eslint-plugin-simple-import-sort@13.0.0 eslint-plugin-solid@0.14.5 eslint-plugin-unicorn@64.0.0 globals@17.6.0 solid-devtools@0.34.5 sonda@0.13.0 typescript@6.0.3 typescript-eslint@8.60.1 vite@8.0.16 vite-plugin-solid@2.11.12
+npm install -D @eslint/js@10.0.1 @morev/eslint-disable-autofix@1.1.0 @stylistic/eslint-plugin@5.10.0 @types/node@25.9.2 eslint@10.4.1 eslint-import-resolver-typescript@4.4.5 eslint-plugin-import-x@4.16.2 eslint-plugin-simple-import-sort@13.0.0 eslint-plugin-solid@0.14.5 eslint-plugin-unicorn@64.0.0 globals@17.6.0 solid-devtools@0.34.5 sonda@0.13.0 typescript@6.0.3 typescript-eslint@8.60.1 vite@8.0.16 vite-plugin-solid@2.11.12
 ```
 
 ## `package.json`

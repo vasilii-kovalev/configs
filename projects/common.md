@@ -19,3 +19,11 @@ trim_trailing_whitespace = true
 indent_size = 2
 indent_style = space
 ```
+
+### `.npmrc`
+
+```npmrc
+# Supply-chain cooldown (days): npm skips versions newer than this so compromised publishes are more likely to be caught before install.
+min-release-age=3
+save-exact=true
+```

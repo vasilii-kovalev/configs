@@ -16,23 +16,16 @@ npm create vite
 1. Select "React"
 2. Select "TypeScript + React compiler"
 
-### `.npmrc`
-
-```npmrc
-# Only install package versions published more than 2 days ago.
-min-release-age=2
-```
-
 ### `dependencies`
 
 ```sh
-npm install -E react@19.2.7 react-dom@19.2.7
+npm install react@19.2.7 react-dom@19.2.7
 ```
 
 ### `devDependencies`
 
 ```sh
-npm install -E -D @babel/core@7.29.7 @eslint-react/eslint-plugin@5.8.12 @eslint/js@10.0.1 @morev/eslint-disable-autofix@1.1.0 @rolldown/plugin-babel@0.2.3 @stylistic/eslint-plugin@5.10.0 @types/babel__core@7.20.5 @types/node@25.9.2 @types/react@19.2.17 @types/react-dom@19.2.3 @vitejs/plugin-react@6.0.2 babel-plugin-react-compiler@1.0.0 eslint@10.4.1 eslint-import-resolver-typescript@4.4.5 eslint-plugin-import-x@4.16.2 eslint-plugin-react-hooks@7.1.1 eslint-plugin-react-refresh@0.5.2 eslint-plugin-simple-import-sort@13.0.0 eslint-plugin-unicorn@64.0.0 globals@17.6.0 sonda@0.13.0 typescript@6.0.3 typescript-eslint@8.60.1 vite@8.0.16
+npm install -D @babel/core@7.29.7 @eslint-react/eslint-plugin@5.8.12 @eslint/js@10.0.1 @morev/eslint-disable-autofix@1.1.0 @rolldown/plugin-babel@0.2.3 @stylistic/eslint-plugin@5.10.0 @types/babel__core@7.20.5 @types/node@25.9.2 @types/react@19.2.17 @types/react-dom@19.2.3 @vitejs/plugin-react@6.0.2 babel-plugin-react-compiler@1.0.0 eslint@10.4.1 eslint-import-resolver-typescript@4.4.5 eslint-plugin-import-x@4.16.2 eslint-plugin-react-hooks@7.1.1 eslint-plugin-react-refresh@0.5.2 eslint-plugin-simple-import-sort@13.0.0 eslint-plugin-unicorn@64.0.0 globals@17.6.0 sonda@0.13.0 typescript@6.0.3 typescript-eslint@8.60.1 vite@8.0.16
 ```
 
 ## `package.json`
