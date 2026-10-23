@@ -1,0 +1,11 @@
+[global]
+cache = false
+
+[line-length]
+enabled = false
+
+[no-hard-tabs]
+code-blocks = false
+
+[no-inline-html]
+allowed-elements = ["details", "summary"]

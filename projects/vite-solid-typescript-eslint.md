@@ -2818,8 +2818,7 @@ export default eslintConfig;
 		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
 	},
 	"editor.codeActionsOnSave": {
-		"source.fixAll.eslint": "explicit",
-		"source.fixAll.markdownlint": "explicit"
+		"source.fixAll.eslint": "explicit"
 	},
 	"eslint.options": {
 		"flags": [

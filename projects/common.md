@@ -46,3 +46,16 @@ save-exact=true
 	}
 }
 ```
+
+### `.rumdl.toml`
+
+```toml
+[global]
+cache = false
+
+[line-length]
+enabled = false
+
+[no-hard-tabs]
+code-blocks = false
+```

@@ -18,6 +18,8 @@
 		"nonblock",
 		"nonconstructor",
 		"nonoctal",
+		"rumdl",
+		"rvben",
 		"setstate",
 		"sonda",
 		"textnodes",

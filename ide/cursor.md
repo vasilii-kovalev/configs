@@ -88,8 +88,8 @@
 - [Code Spell Checker](https://marketplace.cursorapi.com/items/?itemName=streetsidesoftware.code-spell-checker)
 - [EditorConfig](https://marketplace.cursorapi.com/items/?itemName=EditorConfig.EditorConfig)
 - [ESLint](https://marketplace.cursorapi.com/items/?itemName=dbaeumer.vscode-eslint)
-- [markdownlint](https://marketplace.cursorapi.com/items/?itemName=DavidAnson.vscode-markdownlint)
 - [Material Icon Theme](https://marketplace.cursorapi.com/items/?itemName=PKief.material-icon-theme)
+- [rumdl - Markdown Linter](https://open-vsx.org/extension/rvben/rumdl)
 - [Stylelint](https://marketplace.cursorapi.com/items/?itemName=stylelint.vscode-stylelint)
 
 ### `extensions.json`
@@ -97,10 +97,10 @@
 ```jsonc
 {
 	"recommendations": [
-		"DavidAnson.vscode-markdownlint",
 		"dbaeumer.vscode-eslint",
 		"EditorConfig.EditorConfig",
 		"PKief.material-icon-theme",
+		"rvben.rumdl",
 		"streetsidesoftware.code-spell-checker",
 		"stylelint.vscode-stylelint"
 	]
